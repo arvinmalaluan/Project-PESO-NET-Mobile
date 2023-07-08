@@ -15,6 +15,14 @@
   INSERT INTO tbl_userrole (role) VALUES ('recruiter')
   INSERT INTO tbl_userrole (role) VALUES ('seeker')
   INSERT INTO tbl_userrole (role) VALUES ('admin')
+
+  CREATE TABLE tbl_userlogin (
+  	id INT NOT NULL AUTO_INCREMENT,
+      username VARCHAR(255),
+      email VARCHAR(255) NOT NULL,
+      password VARCHAR(255) NOT NULL,
+      PRIMARY KEY (`id`)
+  )
   
   CREATE TABLE tbl_userinfo (
     id INT NOT NULL AUTO_INCREMENT,
@@ -23,15 +31,10 @@
     curraddress VARCHAR(255) NOT NULL,
     phonenumber VARCHAR(20) NOT NULL,
     fk_roleid INT,
-    PRIMARY KEY (`id`)
+    fk_userlogin INT,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`fk_roleid`) REFERENCES tbl_userrole(`id`),
+    FOREIGN KEY (`fk_userlogin`) REFERENCES tbl_userlogin(`id`)
   )
 
-  CREATE TABLE tbl_userlogin (
-  	id INT NOT NULL AUTO_INCREMENT,
-      username VARCHAR(255),
-      email VARCHAR(255) NOT NULL,
-      password VARCHAR(255) NOT NULL,
-      fk_userinfoid INT,
-      PRIMARY KEY (`id`),
-      FOREIGN KEY (`fk_userinfoid`) REFERENCES tbl_userinfo(`id`)
-  )
+  
