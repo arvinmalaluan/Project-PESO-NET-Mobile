@@ -3,7 +3,6 @@
 
 ### Getting Started: Usage Instructions and Installation Guide
 #### How to set repository
-1. 
   CREATE DATABASE pesodb
 
   CREATE TABLE tbl_userrole (
