@@ -1,0 +1,178 @@
+.headline > h1 {
+  font-family: var(--ff-famtwo);
+  font-size: var(--sz-headng);
+  color: var(--ff-pricol);
+
+  padding-top: 70px;
+  margin-bottom: 10px;
+}
+
+.content > p {
+  font-size: var(--sz-hdlbel);
+  color: var(--ff-labelc);
+
+  margin-bottom: 50px;
+}
+
+.form {
+  position: relative;
+}
+
+.name-box {
+  display: flex;
+  flex-direction: row;
+  width: 279px;
+  height: 50px;
+}
+
+.first-box {
+  width: 118px;
+  height: 100%;
+  position: relative;
+
+  border-radius: 5px;
+  border: 1px solid var(--sec-color);
+}
+
+.first-box > input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: transparent;
+  outline: none;
+  border: none;
+
+  padding: 0 20px;
+  font-size: var(--sz-pholdr);
+  color: var(--ff-labelc);
+}
+
+.first-box > label {
+  position: absolute;
+  transform: translate(10px, 12px);
+  background-color: var(--pri-color);
+  color: var(--ff-labelc);
+  transition: all 0.2s;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+.first-box > input:focus ~ label,
+.first-box > input:valid ~ label {
+  background-color: var(--pri-color);
+  color: var(--sec-color);
+  transform: translate(10px, -12px);
+}
+
+.last-box {
+  width: 141px;
+  height: 100%;
+  position: relative;
+
+  border-radius: 5px;
+  margin-left: 20px;
+  border: 1px solid var(--sec-color);
+}
+
+.last-box > input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: transparent;
+  outline: none;
+  border: none;
+
+  padding: 0 20px;
+  font-size: var(--sz-pholdr);
+  color: var(--ff-labelc);
+}
+
+.last-box > label {
+  position: absolute;
+  transform: translate(10px, 12px);
+  background-color: var(--pri-color);
+  color: var(--ff-labelc);
+  transition: all 0.2s;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+::placeholder {
+  opacity: 0;
+}
+
+.last-box > input:focus ~ label,
+.last-box > input:valid ~ label {
+  background-color: var(--pri-color);
+  color: var(--sec-color);
+  transform: translate(10px, -12px);
+}
+
+.input-box {
+  position: relative;
+  height: 50px;
+  background-color: transparent;
+  margin-top: 20px;
+
+  border-radius: 5px;
+  border: 1px solid var(--sec-color);
+}
+
+.input-box > input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  padding: 0 20px;
+  outline: none;
+
+  font-size: var(--sz-pholdr);
+  color: var(--ff-labelc);
+}
+
+.input-box > label {
+  position: absolute;
+  transform: translate(10px, 12px);
+  background-color: var(--pri-color);
+  color: var(--ff-labelc);
+  transition: all 0.2s;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+.input-box > input:focus ~ label,
+.input-box > input:valid ~ label {
+  background-color: var(--pri-color);
+  color: var(--sec-color);
+  transform: translate(10px, -12px);
+}
+
+input:focus::placeholder {
+  opacity: 1;
+  transition: all 0.3s;
+  font-size: var(--sz-pholdr);
+}
+
+.action > p {
+  display: flex;
+  justify-content: center;
+  font-size: var(--sz-pholdr);
+  color: var(--ff-labelc);
+}
+
+.action > button {
+  background-color: var(--sec-color);
+  height: 50px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+
+  font-size: var(--sz-pholdr);
+  color: var(--ff-pricol);
+
+  margin-bottom: 20px;
+  margin-top: 103px;
+}

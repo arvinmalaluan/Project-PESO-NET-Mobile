@@ -1,0 +1,43 @@
+.img-holder {
+  height: 269px;
+  background-color: transparent;
+}
+
+.headline > h1 {
+  font-family: var(--ff-famtwo);
+  font-size: var(--sz-headng);
+  color: var(--ff-pricol);
+
+  margin-top: 57px;
+  margin-bottom: 15px;
+}
+
+.content > p {
+  font-size: var(--sz-hdlbel);
+  color: var(--ff-labelc);
+
+  margin-bottom: 117px;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+}
+
+.action > button {
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--sec-color);
+  color: var(--ff-pricol);
+  font-size: var(--sz-pholdr);
+
+  cursor: pointer;
+}
+
+#signin {
+  background-color: transparent;
+  border: 1px solid var(--sec-color);
+
+  margin-top: 20px;
+}

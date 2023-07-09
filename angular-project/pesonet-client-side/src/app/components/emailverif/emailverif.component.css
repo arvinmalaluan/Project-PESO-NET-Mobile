@@ -1,0 +1,88 @@
+header > img {
+  height: 30px;
+  width: 30px;
+
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.headline > h1 {
+  font-family: var(--ff-famtwo);
+  font-size: var(--sz-headng);
+  color: var(--ff-pricol);
+
+  padding-top: 27px;
+  margin-bottom: 15px;
+}
+
+.content > p {
+  font-size: var(--sz-hdlbel);
+  color: var(--ff-labelc);
+
+  margin-bottom: 50px;
+}
+
+.boxofbox {
+  width: 279px;
+  height: 60px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.boxofbox > div {
+  height: 60px;
+  width: 100%;
+
+  background-color: transparent;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--sec-color);
+}
+
+div > input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+  border: none;
+
+  text-align: center;
+  font-size: 30px;
+  color: var(--sec-color);
+}
+
+input::placeholder {
+  color: var(--sec-color);
+}
+
+input:focus::placeholder {
+  opacity: 0;
+}
+
+.action > button {
+  background-color: var(--sec-color);
+  height: 50px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+
+  font-size: var(--sz-pholdr);
+  color: var(--ff-pricol);
+
+  margin-top: 168px;
+}
+
+.resend {
+  padding-top: 20px;
+}
+
+.action > p {
+  display: flex;
+  justify-content: center;
+  font-size: var(--sz-pholdr);
+  color: var(--ff-labelc);
+
+  margin-top: 20px;
+}

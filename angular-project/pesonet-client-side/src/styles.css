@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --pri-color: #163661;
+  --sec-color: #ffcb12;
+  --plcholder: #f5f5f5;
+  --lbl_color: #d9d9d9;
+
+  --ff-pricol: #ffffff;
+  --ff-seccol: #000000;
+  --ff-thrcol: #343434;
+  --ff-forcol: #676767;
+  --ff-labelc: #d9d9d9;
+
+  --ff-famone: "Space Grotesk", sans-serif;
+  --ff-famtwo: "Familjen Grotesk", sans-serif;
+
+  --sz-headng: 26px;
+  --sz-hdlbel: 18px;
+  --sz-normal: 16px;
+  --sz-pholdr: 14px;
+  --sz-smllst: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--ff-famone);
+}
+
+a {
+  text-decoration: none;
+  color: var(--sec-color);
+  margin-left: 5px;
+}
+
+.auth-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--pri-color);
+}
+
+.auth-container {
+  width: 279px;
+  height: auto;
+  margin: auto;
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+}
