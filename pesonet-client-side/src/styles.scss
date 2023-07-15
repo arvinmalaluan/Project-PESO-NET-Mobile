@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --heading-ff: "Familjen Grotesk", sans-serif;
+  --paragraph-ff: "Space Grotesk", sans-serif;
+  --roboto-ff: "Roboto", sans-serif;
+  --poppins-ff: "Poppins", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  h1 {
+    font-family: var(--heading-ff);
+  }
+
+  p,
+  span,
+  input,
+  ::placeholder,
+  button {
+    font-family: var(--paragraph-ff);
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

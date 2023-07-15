@@ -1,0 +1,245 @@
+.container {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+
+  width: 100vw;
+
+  .left-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .left-side {
+      width: 500px;
+
+      .headline {
+        h1 {
+          font-size: 32px;
+        }
+
+        p {
+          font-size: 16px;
+          margin: 20px 0;
+        }
+      }
+
+      form {
+        .input-box {
+          position: relative;
+          width: 500px;
+          margin-top: 20px;
+
+          input {
+            height: 40px;
+            width: calc(100% - 56px);
+            outline: none;
+            border: 1px solid #878787;
+            border-radius: 10px;
+
+            padding-left: 54px;
+          }
+
+          span {
+            position: absolute;
+            top: 11px;
+            right: 20px;
+
+            font-size: 14px;
+            cursor: pointer;
+          }
+
+          img {
+            height: 24px;
+            width: 24px;
+            position: absolute;
+
+            left: 20px;
+            top: 8px;
+          }
+        }
+
+        button {
+          height: 40px;
+          width: 100%;
+          border: none;
+          border-radius: 10px;
+          color: #fff;
+          background-color: #163661;
+
+          margin: 70px 0 42px;
+        }
+      }
+
+      .signin {
+        display: none;
+      }
+
+      .dash-or {
+        position: relative;
+        margin-bottom: 42px;
+
+        display: flex;
+        justify-content: center;
+
+        span {
+          position: absolute;
+          top: -8px;
+          left: 220px;
+          background-color: #fff;
+          padding: 0 20px;
+        }
+
+        hr {
+          width: 356px;
+        }
+      }
+
+      .other-way {
+        display: flex;
+        flex-direction: column;
+
+        .google {
+          background-color: #fff;
+          border: 1px solid #878787;
+        }
+
+        .facebook {
+          background-color: #1877f2;
+          color: #fff;
+        }
+
+        .apple {
+          background-color: #000000;
+          color: #fff;
+        }
+
+        button {
+          height: 40px;
+          margin: 10px 0;
+          border-radius: 10px;
+          border: none;
+
+          position: relative;
+
+          img {
+            height: 24px;
+            width: 24px;
+
+            position: absolute;
+            top: 8px;
+            left: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .right-side {
+    width: 36.53%;
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    .content {
+      width: 300px;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #fff;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      font-size: 16px;
+      color: #fff;
+      font-weight: lighter;
+
+      margin: 40px auto 112px;
+    }
+
+    img {
+      z-index: -10;
+      position: absolute;
+      width: 100%;
+      left: 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+      border: none;
+
+      color: #163661;
+      font-weight: bold;
+    }
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .container {
+    height: 100vh;
+    width: 100vw;
+
+    .right-side {
+      height: 100vh;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    height: 100vh;
+    width: 100vw;
+
+    .left-container {
+      .left-side {
+        form {
+          button {
+            margin-bottom: 20px;
+          }
+        }
+        .signin {
+          display: unset;
+          text-align: center;
+
+          p {
+            font-size: 14px;
+
+            span {
+              a {
+                font-weight: bold;
+                color: #163661;
+              }
+            }
+          }
+        }
+
+        .dash-or {
+          margin-top: 32px;
+        }
+      }
+    }
+
+    .right-side {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
