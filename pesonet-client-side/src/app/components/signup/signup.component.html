@@ -23,6 +23,148 @@
         alt=""
       />
     </div>
-    <div class="right"></div>
+
+    <div class="right">
+      <div class="right-wrapper">
+        <div class="heading">
+          <h1>New here?</h1>
+          <p>
+            Sign up and open the door to a world of career possibilities. Let's
+            get started on your path to success!
+          </p>
+        </div>
+
+        <form [formGroup]="formData">
+          <div class="name m20">
+            <div class="fname">
+              <div class="name-box">
+                <input
+                  type="text"
+                  name="fname"
+                  id="fname"
+                  autocomplete="off"
+                  placeholder="First name"
+                  (focus)="onFocus(0)"
+                  (blur)="onBlur(0)"
+                  [ngClass]="[
+                    setState[0] ? 'active' : '',
+                    isValid[0] ? '' : 'invalid'
+                  ]"
+                  formControlName="fname"
+                />
+                <label for="fname">First name</label>
+              </div>
+              <span [ngClass]="isValid[0] ? '' : 'invalid'"
+                >This field is invalid *</span
+              >
+            </div>
+            <div class="lname">
+              <div class="name-box">
+                <input
+                  type="text"
+                  name="lname"
+                  id="lname"
+                  autocomplete="off"
+                  placeholder="Last name"
+                  (focus)="onFocus(1)"
+                  (blur)="onBlur(1)"
+                  [ngClass]="[
+                    setState[1] ? 'active' : '',
+                    isValid[1] ? '' : 'invalid'
+                  ]"
+                  formControlName="lname"
+                />
+                <label for="lname">Last name</label>
+              </div>
+              <span [ngClass]="isValid[1] ? '' : 'invalid'"
+                >This field is invalid *</span
+              >
+            </div>
+          </div>
+
+          <div class="input- m20">
+            <div class="input-box">
+              <input
+                type="text"
+                name="email"
+                id="email"
+                autocomplete="off"
+                placeholder="Enter your email address"
+                (focus)="onFocus(2)"
+                (blur)="onBlur(2)"
+                [ngClass]="[
+                  setState[2] ? 'active' : '',
+                  isValid[2] ? '' : 'invalid'
+                ]"
+                formControlName="email"
+              />
+              <label for="email">Enter your email address</label>
+            </div>
+            <span class="inp-inv" [ngClass]="isValid[2] ? '' : 'invalid'"
+              >This field is invalid *</span
+            >
+          </div>
+
+          <div class="input- m20">
+            <div class="input-box">
+              <input
+                [type]="show ? 'text' : 'password'"
+                name="password"
+                id="password"
+                placeholder="Enter your password"
+                (focus)="onFocus(3)"
+                (blur)="onBlur(3)"
+                [ngClass]="[
+                  setState[3] ? 'active' : '',
+                  isValid[3] ? '' : 'invalid'
+                ]"
+                formControlName="password"
+              />
+              <label for="password">Enter your password</label>
+              <span class="show-password" (click)="toggleShow()">{{
+                label
+              }}</span>
+            </div>
+            <span class="inp-inv" [ngClass]="isValid[3] ? '' : 'invalid'"
+              >This field is invalid *</span
+            >
+          </div>
+
+          <div class="role">
+            <span>This field cannot be null *</span>
+            <div class="role-box">
+              <div class="role--content">
+                <input
+                  type="radio"
+                  name="role"
+                  id="recruiter"
+                  value="2"
+                  formControlName="role"
+                />
+                <label for="recruiter">Job Recruiter</label>
+              </div>
+              <div class="role--content">
+                <input
+                  type="radio"
+                  name="role"
+                  id="seeker"
+                  value="3"
+                  formControlName="role"
+                />
+                <label for="seeker">Job Seeker</label>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="actions">
+          <button (click)="handleClick()">Create Account</button>
+          <p>
+            Already have an account?
+            <a href="">Sign in</a>
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 </section>

@@ -1,113 +1,109 @@
-.signin-wrapper {
-  height: 100%;
-  width: 100%;
+.container {
+  padding: 64px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .signin-wrapper {
+    width: 100%;
+    height: 100%;
 
-  .signin-section {
-    max-width: 1200px;
-    max-height: 600px;
-
-    width: 1200px;
-    height: 600px;
     display: flex;
 
     .left {
-      width: 500px;
+      width: 40%;
+      height: 100%;
+      padding: 0 50px;
 
-      .left-content {
-        width: 350px;
-        margin: 0 auto;
+      .left-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        background-color: white;
 
         .heading {
           h1 {
             font-size: var(--h1);
-            margin-bottom: 10px;
           }
 
           p {
-            font-size: var(--18);
+            font-size: var(--16);
             color: var(--secondary-black);
-            margin-bottom: 30px;
+
+            margin: 10px 0 5px;
           }
         }
 
         form {
-          .m30 {
-            margin-bottom: 30px;
+          .m20 {
+            margin-bottom: 20px;
           }
 
           .input- {
             position: relative;
+            height: 50px;
+            width: 100%;
 
             .input-box {
-              position: relative;
-              width: 100%;
-
               input {
-                width: 100%;
-                height: 50px;
+                position: absolute;
 
-                font-size: var(--14);
-                padding-top: 20px;
+                width: 100%;
+                height: 100%;
+
                 outline: none;
+                background-color: transparent;
                 border: none;
                 border-bottom: 1px solid var(--gray);
 
-                transition: 0.4s all;
-              }
-
-              input::placeholder {
+                font-family: var(--paragraph-ff);
                 font-size: var(--16);
-                opacity: 0;
-              }
 
-              label {
-                position: absolute;
-                top: 23px;
-
-                display: block;
-                user-select: none;
-                pointer-events: none;
-                font-size: var(--16);
-                color: var(--gray);
-
+                padding-top: 20px;
                 transition: 0.4s all;
-              }
-
-              .show-password {
-                position: absolute;
-                top: 50%;
-                left: auto;
-                right: 10px;
-                transform: translateY(-50%);
-
-                font-size: var(--12);
-                cursor: pointer;
-                color: var(--gray);
-                user-select: none;
-
-                transition: 0.4s;
-              }
-
-              .show-password:hover {
-                color: #000;
               }
 
               input.active {
                 border-bottom-color: #000;
               }
 
-              input.active::placeholder {
-                opacity: 1;
-              }
-
               input.active + label {
                 color: var(--gray);
                 font-size: var(--12);
                 top: 7px;
+              }
+
+              label {
+                position: absolute;
+                left: 0;
+                top: 24px;
+
+                pointer-events: none;
+                user-select: none;
+                color: var(--gray);
+
+                transition: 0.4s all;
+              }
+
+              input::placeholder {
+                font-family: var(--paragraph-ff);
+                font-size: var(--16);
+
+                opacity: 0;
+              }
+
+              span {
+                position: absolute;
+
+                top: 50%;
+                right: 10px;
+                left: auto;
+                transform: translateY(-50%);
+
+                font-size: var(--12);
+                color: var(--gray);
+                user-select: none;
+                cursor: pointer;
               }
 
               input.invalid {
@@ -117,86 +113,75 @@
               input.invalid + label {
                 color: var(--error-red);
               }
-
-              input.invalid::placeholder {
-                color: var(--error-red);
-              }
             }
 
-            .inv-inp {
+            .inp-inv {
               position: absolute;
               bottom: -20px;
               right: 0;
-              left: auto;
-
               color: var(--error-red);
-              font-size: var(--14);
+              font-size: var(--12);
               display: none;
-
-              transition: 0.4s all;
             }
 
-            .inv-inp.invalid {
-              user-select: none;
-              pointer-events: none;
+            .inp-inv.invalid {
               display: unset;
             }
           }
         }
 
-        .action {
-          font-size: var(--14);
-          text-align: center;
-
-          p {
-            color: var(--secondary-black);
-          }
-
-          a {
-            color: black;
-            font-weight: bold;
-            transition: 0.4s;
-          }
-
-          a:hover {
-            color: var(--primary-blue);
-          }
-
+        .actions {
           button {
-            height: 40px;
             width: 100%;
+            height: 40px;
 
-            border-radius: 10px;
-            border: none;
+            margin: 100px 0 40px;
             background-color: #000;
             color: #fff;
-            cursor: pointer;
+            border-radius: 10px;
+            border: none;
 
-            margin-bottom: 160px;
+            cursor: pointer;
             transition: 0.4s all;
           }
 
           button:hover {
-            color: #fff;
             background-color: var(--primary-blue);
           }
 
-          .forgot-password {
-            margin: 40px auto 50px;
+          p {
+            font-size: var(--14);
+            text-align: center;
+            color: var(--gray);
+
+            a {
+              color: #000;
+              font-weight: bold;
+              transition: 0.4s ease;
+            }
+
+            a:hover {
+              color: var(--primary-blue);
+            }
           }
         }
       }
     }
 
     .right {
-      width: calc(100% - 396px);
-      border-radius: 20px;
+      width: 60%;
       height: 100%;
       position: relative;
 
+      border-radius: 20px;
       overflow: hidden;
 
-      .bg-img {
+      .img-holder {
+        height: 100%;
+        width: 100%;
+
+        position: relative;
+
         img {
           height: 100%;
           position: absolute;
@@ -213,42 +198,49 @@
         }
       }
 
-      .qoute {
-        margin: 28px;
-      }
-
-      .message {
+      .txt {
         position: absolute;
-        bottom: 95px;
-        top: auto;
-
+        bottom: 195px;
         color: #fff;
-        font-weight: lighter;
 
-        .quote {
-          font-size: var(--12);
-          width: 400px;
-
-          margin-left: 60px;
-          margin-top: 20px;
-        }
+        width: 100%;
 
         .glass {
+          position: inherit;
+          left: 40px;
+
+          width: 210px;
           background: rgba(255, 255, 255, 0.18);
           border-radius: 20px;
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           backdrop-filter: blur(4.8px);
           -webkit-backdrop-filter: blur(4.8px);
           border: 1px solid rgba(255, 255, 255, 0.38);
-          width: 200px;
-
-          margin-left: 40px;
 
           p {
-            font-size: var(--16);
-            padding: 10px 0 10px 15px;
+            padding: 10px 20px 10px 36px;
+            font-size: 16px;
+            font-family: var(--roboto-ff);
           }
         }
+
+        .quote {
+          position: inherit;
+          left: auto;
+          left: 75px;
+          top: 59px;
+
+          font-size: var(--12);
+          width: 400px;
+          text-align: left;
+        }
+      }
+
+      .quote-img {
+        position: absolute;
+        top: 28px;
+        right: 28px;
+        transform: scaleX(-1);
       }
     }
   }
