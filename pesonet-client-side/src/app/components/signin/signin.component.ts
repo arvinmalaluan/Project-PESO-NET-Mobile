@@ -8,7 +8,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
   setState = [false, false];
-  passState: boolean = false;
   formData: any = FormGroup;
   show: boolean = false;
   isValid = [true, true];
