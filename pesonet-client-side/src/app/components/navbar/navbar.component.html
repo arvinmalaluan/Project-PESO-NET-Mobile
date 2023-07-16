@@ -4,10 +4,8 @@
   </div>
   <div class="links">
     <ul>
-      <li *ngFor="let navData of newNavData">
-        <a (click)="navigateTo(navData.path)" routerLinkActive="active">{{
-          navData.title
-        }}</a>
+      <li *ngFor="let navData of newNavData" routerLinkActive="active">
+        <a routerLink="{{ navData.path }}">{{ navData.title }}</a>
       </li>
     </ul>
   </div>

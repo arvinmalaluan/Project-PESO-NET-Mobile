@@ -4,10 +4,11 @@ nav {
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100vw;
 
   background-color: #fff;
-  padding: 18px 100px;
+  padding: 0 100px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   .logo {
@@ -22,15 +23,26 @@ nav {
   }
 
   .links {
-    width: 40%;
+    width: 50%;
 
     ul {
       display: flex;
       justify-content: space-between;
       width: 100%;
 
+      box-sizing: border-box;
+
+      li.active {
+        border-bottom: 2px solid black;
+        a {
+          color: black;
+          font-weight: bold;
+        }
+      }
+
       li {
         list-style: none;
+        padding: 18px 10px;
 
         a {
           cursor: pointer;
