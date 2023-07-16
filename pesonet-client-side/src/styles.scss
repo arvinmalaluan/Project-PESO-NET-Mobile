@@ -5,14 +5,36 @@
   --paragraph-ff: "Space Grotesk", sans-serif;
   --roboto-ff: "Roboto", sans-serif;
   --poppins-ff: "Poppins", sans-serif;
+
+  --h1: 32px;
+  --h2: 24px;
+  --h3: 20px;
+
+  --18: 18px;
+  --14: 14px;
+  --16: 16px;
+  --12: 12px;
+
+  --gray: #878787;
+  --error-red: #ff3333;
+  --primary-blue: #163661;
+
+  --secondary-black: #4d4d4d;
 }
 
 * {
   margin: 0;
   padding: 0;
+
+  box-sizing: border-box;
 }
 
 body {
+  .container {
+    height: 100vh;
+    width: 100vw;
+  }
+
   h1 {
     font-family: var(--heading-ff);
   }
@@ -20,6 +42,7 @@ body {
   p,
   span,
   input,
+  label,
   ::placeholder,
   button {
     font-family: var(--paragraph-ff);
