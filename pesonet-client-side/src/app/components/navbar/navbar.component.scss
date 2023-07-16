@@ -1,0 +1,48 @@
+nav {
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+
+  background-color: #fff;
+  padding: 18px 100px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  .logo {
+    font-size: var(--18);
+
+    p {
+      a {
+        color: #000;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .links {
+    width: 40%;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      li {
+        list-style: none;
+
+        a {
+          cursor: pointer;
+          color: var(--gray);
+
+          transition: 0.4s;
+        }
+
+        a:hover {
+          color: var(--secondary-black);
+        }
+      }
+    }
+  }
+}

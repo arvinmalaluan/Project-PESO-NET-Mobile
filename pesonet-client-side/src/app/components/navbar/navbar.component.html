@@ -1,11 +1,13 @@
 <nav>
   <div class="logo">
-    <p>PESO-Net</p>
+    <p><a href="#">PESO-Net</a></p>
   </div>
   <div class="links">
     <ul>
       <li *ngFor="let navData of newNavData">
-        <a [routerLink]="">{{ navData.title }}</a>
+        <a (click)="navigateTo(navData.path)" routerLinkActive="active">{{
+          navData.title
+        }}</a>
       </li>
     </ul>
   </div>

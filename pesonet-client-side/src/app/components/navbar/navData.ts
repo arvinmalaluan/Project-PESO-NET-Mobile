@@ -22,6 +22,6 @@ export const navData = [
   {
     id: 5,
     title: 'Profile',
-    path: 'profile',
+    path: 'manage-post',
   },
 ];

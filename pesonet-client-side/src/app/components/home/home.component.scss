@@ -1,0 +1,242 @@
+.container {
+  width: 100vw;
+  height: calc(100vh - 69px);
+  padding: 20px 100px 0;
+  background-color: #f2f2f2;
+
+  display: flex;
+
+  .left {
+    width: 35%;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+
+    hr {
+      margin-top: 5px;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .upper-box {
+      height: 100%;
+
+      .follow-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        overflow: hidden;
+
+        .profile {
+          height: 50px;
+          width: 50px;
+          background-color: var(--gray);
+          border-radius: 50%;
+
+          margin: 20px 0;
+        }
+
+        .txt-content {
+          margin-left: 15px;
+
+          .name {
+            font-weight: bold;
+            font-size: var(--14);
+          }
+
+          .company {
+            color: var(--gray);
+            font-size: var(--12);
+          }
+        }
+
+        .btn-follow {
+          height: 25px;
+          width: 25px;
+          cursor: pointer;
+
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .recommendation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      cursor: pointer;
+      margin-top: 10px;
+
+      p {
+        color: var(--gray);
+      }
+
+      img {
+        height: 25px;
+        width: 25px;
+      }
+    }
+  }
+
+  .right {
+    margin-left: 30px;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+
+    position: relative;
+
+    .right-actions {
+      position: absolute;
+      right: 0;
+
+      .right-box {
+        display: flex;
+        padding: 0 10px;
+
+        .holder {
+          padding: 0 10px;
+          img {
+            height: 24px;
+            width: 24px;
+          }
+        }
+      }
+    }
+
+    .create-post {
+      display: flex;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 10px;
+
+      padding: 25px 0;
+
+      .profile {
+        height: 50px;
+        width: 50px;
+        background-color: var(--gray);
+        border-radius: 50%;
+
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      input {
+        width: 100%;
+        margin-right: 20px;
+        height: 50px;
+
+        outline: none;
+        border-radius: 10px;
+        border: 1px solid var(--gray);
+
+        padding-left: 20px;
+      }
+    }
+
+    .filter {
+      margin: 15px 0;
+      width: 100%;
+      height: 20px;
+
+      display: flex;
+      justify-content: space-between;
+
+      input {
+        height: 50%;
+        width: 100%;
+
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid var(--gray);
+      }
+
+      p {
+        width: 20%;
+        margin-left: 15px;
+      }
+    }
+
+    .job-post {
+      padding: 24px;
+      background-color: #fff;
+      border-radius: 10px;
+
+      .header {
+        display: flex;
+        background-color: transparent;
+
+        .profile {
+          height: 50px;
+          width: 50px;
+          background-color: var(--gray);
+          border-radius: 50%;
+        }
+
+        .txt-content {
+          margin-left: 15px;
+
+          .name {
+            font-weight: bold;
+            font-size: var(--14);
+          }
+
+          .company,
+          .time {
+            color: var(--gray);
+            font-size: var(--12);
+          }
+        }
+      }
+
+      .body {
+        margin-top: 16px;
+
+        .img-holder {
+          width: 100%;
+          margin: 15px 0 28px;
+
+          border-radius: 10px;
+          background-color: blue;
+        }
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-top: 15px;
+
+        .action-box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24%;
+          padding: 10px 0;
+          border-radius: 10px;
+          cursor: pointer;
+
+          img {
+            height: 24px;
+            width: 24px;
+            margin-right: 15px;
+          }
+        }
+
+        .action-box:hover {
+          background-color: var(--light-gray);
+        }
+      }
+    }
+  }
+}

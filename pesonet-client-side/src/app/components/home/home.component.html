@@ -1,1 +1,81 @@
 <app-navbar />
+
+<section class="container">
+  <section class="left">
+    <div class="upper-box">
+      <p class="title">Add to your feed</p>
+      <hr />
+      <div class="follow-box">
+        <span><div class="profile"></div></span>
+        <div class="txt-content">
+          <p class="name">Temporary name</p>
+          <p class="company">Temporary company @forawhile.inc</p>
+        </div>
+
+        <div class="btn-follow">
+          <img src="../../../assets/icons/add.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <div class="recommendation">
+      <p class="view-all">View all recommendations</p>
+      <img src="../../../assets/icons/arrow-forward.svg" alt="arrow button" />
+    </div>
+  </section>
+
+  <!-- Start of right section -->
+  <section class="right">
+    <div class="create-post">
+      <span><div class="profile"></div></span>
+      <input
+        type="text"
+        name=""
+        id=""
+        placeholder="What is on your mind, Arvin?"
+      />
+    </div>
+
+    <div class="filter">
+      <input type="text" />
+      <p>Sort by:</p>
+    </div>
+
+    <div class="job-post">
+      <div class="right-actions">
+        <div class="right-box">
+          <div class="holder" *ngFor="let topBtns of topRight">
+            <img src="../../../assets/icons/{{ topBtns.icon }}" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="header">
+        <div class="profile"></div>
+        <div class="txt-content">
+          <p class="name">{{ tempData.name }}</p>
+          <p class="company">{{ tempData.companyName }}</p>
+          <p class="time">{{ tempData.time }}</p>
+        </div>
+      </div>
+      <div class="body">
+        <p>
+          Looking for: <b>{{ tempData.lookingFor }}</b>
+        </p>
+
+        <div *ngIf="tempData.img" class="img-holder"></div>
+      </div>
+      <hr />
+      <div class="actions">
+        <div *ngFor="let feedBtns of btnList" class="action-box">
+          <img
+            src="../../../assets/icons/{{ feedBtns.icon }}"
+            alt="{{ feedBtns.icon }}"
+          />
+          <p>{{ feedBtns.label }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

@@ -47,7 +47,8 @@ body {
   input,
   label,
   ::placeholder,
-  button {
+  button,
+  a {
     font-family: var(--paragraph-ff);
   }
 
