@@ -1,1 +1,12 @@
-<p>navbar works!</p>
+<nav>
+  <div class="logo">
+    <p>PESO-Net</p>
+  </div>
+  <div class="links">
+    <ul>
+      <li *ngFor="let navData of newNavData">
+        <a [routerLink]="">{{ navData.title }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
