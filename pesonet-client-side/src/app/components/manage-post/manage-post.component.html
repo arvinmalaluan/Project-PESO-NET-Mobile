@@ -1,9 +1,69 @@
-<app-navbar />
-
-<section class="container">
-  <section class="wrapper">
-    <div class="profile-header">
-      <app-profile-header />
+<section class="wrapper">
+  <div class="left">
+    <div class="heading">
+      <p>This year</p>
+      <img src="../../../assets/icons/arrow-down.svg" alt="" />
     </div>
-  </section>
+
+    <div class="content">
+      <div class="input-box" *ngFor="let mos of months">
+        <input type="checkbox" id="{{ mos.id }}" value="{{ mos.id }}" />
+        <label for="{{ mos.id }}">{{ mos.label }}</label>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="search">
+      <span><div class="profile"></div></span>
+      <input
+        type="text"
+        placeholder="What is on your mind, name of the user?"
+      />
+    </div>
+
+    <div class="post">
+      <div class="top-btns">
+        <img src="../../../assets/icons/more.svg" alt="no img found" />
+        <img src="../../../assets/icons/close.svg" alt="no img found" />
+      </div>
+
+      <div class="head">
+        <span><div class="profile"></div></span>
+        <div class="text">
+          <p class="name">Temporary name</p>
+          <p class="company">Temporary company</p>
+          <p class="date">Teporary date</p>
+        </div>
+      </div>
+
+      <div class="body">
+        <p>Temporary message</p>
+        <div class="img-holder">
+          <!-- add ngIf here for image -->
+          <!-- image goes here -->
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="left-" *ngFor="let btn of newBtn">
+          <div class="img--">
+            <span
+              ><img
+                src="../../../assets/icons/{{ btn.icon }}"
+                alt="no img found"
+            /></span>
+            <p>{{ btn.label }}</p>
+          </div>
+        </div>
+        <div class="right-">
+          <div class="img--">
+            <span
+              ><img src="../../../assets/icons/delete.svg" alt="no img found"
+            /></span>
+            <p>Delete</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

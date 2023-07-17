@@ -10,6 +10,7 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { ManagePostComponent } from './components/manage-post/manage-post.component';
 import { ManageResumeComponent } from './components/manage-resume/manage-resume.component';
 import { ManageInfoComponent } from './components/manage-info/manage-info.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -46,16 +47,23 @@ const routes: Routes = [
     component: NotificationsComponent,
   },
   {
-    path: 'manage-post',
-    component: ManagePostComponent,
-  },
-  {
-    path: 'manage-info',
-    component: ManageInfoComponent,
-  },
-  {
-    path: 'manage-resu',
-    component: ManageResumeComponent,
+    path: 'profile',
+    component: ProfileComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'manage-post' },
+      {
+        path: 'manage-post',
+        component: ManagePostComponent,
+      },
+      {
+        path: 'manage-info',
+        component: ManageInfoComponent,
+      },
+      {
+        path: 'manage-resu',
+        component: ManageResumeComponent,
+      },
+    ],
   },
 ];
 

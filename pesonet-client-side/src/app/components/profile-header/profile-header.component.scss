@@ -1,5 +1,5 @@
 .wrapper {
-  width: 100%;
+  width: calc(100vw - 200px);
   height: 370px;
   border-radius: 10px;
 
@@ -27,7 +27,6 @@
 
   .bottom {
     padding: 40px 10px 16px 40px;
-    height: 100%;
     width: 100%;
 
     position: relative;
@@ -95,13 +94,18 @@
 
       transition: 0.4s all;
 
-      a {
-        color: var(--primary-blue);
-        font-weight: bold;
-      }
+      p {
+        display: flex;
+        flex-direction: column;
 
-      span {
-        color: var(--gray);
+        a {
+          color: var(--primary-blue);
+          font-weight: bold;
+        }
+
+        span {
+          color: var(--gray);
+        }
       }
     }
 
