@@ -1,1 +1,83 @@
-<p>Manage information works</p>
+<section class="wrapper">
+  <div class="left">
+    <p>Manage Information</p>
+    <ul>
+      <li (click)="setShow('overview')">Overview</li>
+      <li (click)="setShow('details')">Details about you</li>
+      <li (click)="setShow('places')">Places lived</li>
+      <li (click)="setShow('contacts')">Contact and basic info</li>
+      <li (click)="setShow('account')">Account settings</li>
+    </ul>
+  </div>
+  <div class="right">
+    <form [formGroup]="manageData">
+      <div class="empty--" [ngSwitch]="showForm">
+        <div *ngSwitchCase="'overview'">
+          <div
+            class="input-box"
+            *ngFor="let over of newOver"
+            [ngClass]="isActive[over.id] ? 'active' : ''"
+          >
+            <input
+              type="text"
+              id="{{ over.id }}"
+              name="{{ over.name }}"
+              formControlName="{{ over.name }}"
+              placeholder="{{ over.phold }}"
+              (focus)="onFocus(over.id)"
+              (blur)="onBlur(over.id, over.name)"
+              autocomplete="off"
+            />
+            <label for="{{ over.id }}">{{ over.label }}</label>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'contacts'">
+          <div
+            class="input-box"
+            *ngFor="let contact of contacts"
+            [ngClass]="isActive[contact.id] ? 'active' : ''"
+          >
+            <input
+              type="text"
+              id="{{ contact.id }}"
+              name="{{ contact.name }}"
+              formControlName="{{ contact.name }}"
+              placeholder="{{ contact.phold }}"
+              (focus)="onFocus(contact.id)"
+              (blur)="onBlur(contact.id, contact.name)"
+              autocomplete="off"
+            />
+            <label for="{{ contact.id }}">{{ contact.label }}</label>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'details'">
+          <div
+            class="input-box"
+            *ngFor="let detail of details"
+            [ngClass]="isActive[detail.id] ? 'active' : ''"
+          >
+            <input
+              type="text"
+              id="{{ detail.id }}"
+              name="{{ detail.name }}"
+              formControlName="{{ detail.name }}"
+              placeholder="{{ detail.phold }}"
+              (focus)="onFocus(detail.id)"
+              (blur)="onBlur(detail.id, detail.name)"
+              autocomplete="off"
+            />
+            <label for="{{ detail.id }}">{{ detail.label }}</label>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="actions">
+      <button class="discard">Discard changes</button>
+      <button class="save">Save changes</button>
+    </div>
+  </div>
+</section>
+
+<section class="overview"></section>

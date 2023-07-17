@@ -1,1 +1,93 @@
-<p>Manage Resume Works</p>
+<section class="wrapper">
+  <section class="left">
+    <p>Personal Details</p>
+    <form [formGroup]="resumeData">
+      <div class="empty--">
+        <div class="name-box">
+          <div class="fname" [ngClass]="isActive[4] ? 'active' : ''">
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="Example: 'Arvin'"
+              formControlName="fname"
+              (focus)="onFocus(4)"
+              (blur)="onBlur(4, 'fname')"
+              autocomplete="off"
+            />
+            <label for="fname">First name</label>
+          </div>
+
+          <div class="lname" [ngClass]="isActive[5] ? 'active' : ''">
+            <input
+              type="text"
+              id="lname"
+              name="lname"
+              placeholder="Example: 'Malaluan'"
+              formControlName="lname"
+              (focus)="onFocus(5)"
+              (blur)="onBlur(5, 'lname')"
+              autocomplete="off"
+            />
+            <label for="lname">Last name</label>
+          </div>
+        </div>
+
+        <div
+          class="input-box"
+          *ngFor="let detail of details"
+          [ngClass]="isActive[detail.id] ? 'active' : ''"
+        >
+          <input
+            type="{{ detail.type }}"
+            id="{{ detail.id }}"
+            name="{{ detail.name }}"
+            placeholder="{{ detail.placeholder }}"
+            formControlName="{{ detail.name }}"
+            (focus)="onFocus(detail.id)"
+            (blur)="onBlur(detail.id, detail.name)"
+            autocomplete="off"
+          />
+          <label for="{{ detail.id }}">{{ detail.label }}</label>
+        </div>
+
+        <div class="loc-box">
+          <div class="postcode" [ngClass]="isActive[6] ? 'active' : ''">
+            <input
+              type="text"
+              id="postcode"
+              name="postcode"
+              placeholder="Example: '4200'"
+              formControlName="postcode"
+              (focus)="onFocus(6)"
+              (blur)="onBlur(6, 'postcode')"
+              autocomplete="off"
+            />
+            <label for="postcode">Post code</label>
+          </div>
+
+          <div class="city" [ngClass]="isActive[7] ? 'active' : ''">
+            <input
+              type="text"
+              id="city"
+              name="city"
+              placeholder="Example: 'Batangas City'"
+              formControlName="city"
+              (focus)="onFocus(7)"
+              (blur)="onBlur(7, 'city')"
+              autocomplete="off"
+            />
+            <label for="city">City</label>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="actions">
+      <button class="discard">Discard Changes</button>
+      <button class="save">Save Changes</button>
+    </div>
+  </section>
+
+  <section class="right">hello yah</section>
+</section>
