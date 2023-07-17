@@ -1,0 +1,11 @@
+.container {
+  height: calc(100vh - 60px);
+  background-color: var(--light-gray);
+  padding: 0 100px;
+
+  .profile-header {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}

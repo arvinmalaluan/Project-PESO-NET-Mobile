@@ -1,0 +1,118 @@
+.container {
+  height: calc(100vh - 60px);
+  background-color: #f2f2f2;
+  padding: 20px 0 0;
+
+  .wrapper {
+    width: 500px;
+    height: 100%;
+    background-color: #fff;
+
+    padding: 10px 20px 0;
+
+    margin: 0 auto;
+    border-radius: 10px 10px 0 0;
+
+    .headline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h3 {
+        font-size: var(--h3);
+      }
+
+      img:hover {
+        background-color: var(--light-gray);
+      }
+
+      img {
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+
+        cursor: pointer;
+      }
+    }
+
+    .actions {
+      margin-top: 10px;
+      border-bottom: 1px solid var(--light-gray);
+      height: auto;
+
+      padding: 0 0 5px;
+
+      a {
+        font-size: var(--14);
+        margin-right: 10px;
+        padding: 0 5px;
+        color: #000;
+        padding: 0 5px 5px;
+      }
+    }
+
+    .active {
+      color: #000;
+      font-weight: bold;
+      border-bottom: 1px solid black;
+    }
+
+    .notifications {
+      width: 100%;
+
+      .notification {
+        width: 100%;
+
+        p.title {
+          margin-top: 15px;
+          margin-left: 10px;
+          font-weight: bold;
+        }
+
+        .new:hover,
+        .earlier:hover {
+          background-color: var(--light-gray);
+        }
+
+        .new,
+        .earlier {
+          width: 100%;
+          padding: 5px 10px;
+          display: flex;
+          border-radius: 10px;
+          white-space: nowrap;
+          overflow: hidden;
+
+          transition: 0.4s;
+          cursor: pointer;
+
+          .profile {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            margin-right: 15px;
+          }
+
+          .text {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+            .name {
+              font-size: var(--16);
+              font-weight: bold;
+            }
+
+            span {
+              font-size: var(--12);
+              color: var(--gray);
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+  }
+}

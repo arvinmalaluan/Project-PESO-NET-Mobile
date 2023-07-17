@@ -1,0 +1,121 @@
+.wrapper {
+  width: 100%;
+  height: 370px;
+  border-radius: 10px;
+
+  position: relative;
+  overflow: hidden;
+
+  .profile {
+    height: 150px;
+    width: 150px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    background-color: var(--gray);
+    z-index: 1;
+
+    top: 30px;
+    left: 40px;
+    position: absolute;
+  }
+
+  .header {
+    width: 100%;
+    height: 150px;
+    background-color: var(--primary-yellow);
+  }
+
+  .bottom {
+    padding: 40px 10px 16px 40px;
+    height: 100%;
+    width: 100%;
+
+    position: relative;
+    background-color: #fff;
+
+    img {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+
+      height: 24px;
+      width: 24px;
+
+      border-radius: 50%;
+      cursor: pointer;
+
+      transition: 0.4s all;
+    }
+
+    img:hover {
+      background-color: var(--light-gray);
+    }
+
+    .txt {
+      .name {
+        font-size: var(--h2);
+      }
+
+      .loc,
+      .bio {
+        font-size: var(--16);
+        color: var(--secondary-black);
+      }
+
+      .bio {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .actions {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 45%;
+    gap: 10px;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+
+    div.active {
+      background-color: var(--light-gray);
+    }
+
+    div {
+      margin: 10px 0 15px;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+
+      user-select: none;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      transition: 0.4s all;
+
+      a {
+        color: var(--primary-blue);
+        font-weight: bold;
+      }
+
+      span {
+        color: var(--gray);
+      }
+    }
+
+    div:hover {
+      background-color: var(--light-gray);
+    }
+  }
+
+  .actions::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .actions::-webkit-scrollbar-thumb {
+    background: var(--primary-yellow);
+    border-radius: 20px;
+  }
+}

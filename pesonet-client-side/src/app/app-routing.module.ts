@@ -8,6 +8,8 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ManagePostComponent } from './components/manage-post/manage-post.component';
+import { ManageResumeComponent } from './components/manage-resume/manage-resume.component';
+import { ManageInfoComponent } from './components/manage-info/manage-info.component';
 
 const routes: Routes = [
   {
@@ -46,6 +48,14 @@ const routes: Routes = [
   {
     path: 'manage-post',
     component: ManagePostComponent,
+  },
+  {
+    path: 'manage-info',
+    component: ManageInfoComponent,
+  },
+  {
+    path: 'manage-resu',
+    component: ManageResumeComponent,
   },
 ];
 

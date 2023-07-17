@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: calc(100vh - 57px);
+  height: calc(100vh - 60px);
 
   padding: 15px 100px 0px;
   background-color: #f2f2f2;
@@ -47,11 +47,11 @@
       }
 
       .search {
-        height: 50px;
+        height: 40px;
         width: 100%;
         position: relative;
 
-        margin-bottom: 24px;
+        margin-bottom: 15px;
 
         input {
           position: absolute;
@@ -135,6 +135,7 @@
       margin-left: 15px;
 
       border-radius: 20px 20px 0 0;
+      overflow: hidden;
 
       .headline {
         height: 50px;
@@ -161,11 +162,33 @@
       }
 
       .chat-window {
+        height: 100%;
+
+        .defaultScreen {
+          height: 100%;
+          width: 100%;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          padding: 0 100px;
+          p {
+            width: 100%;
+            text-align: center;
+            color: var(--gray);
+          }
+        }
       }
+
       .actions {
         width: 100%;
-        position: relative;
+        position: sticky;
+        bottom: 0;
         padding: 15px 15px 10px;
+        background: #fff;
+
+        border-top: 1px solid var(--light-gray);
 
         .chat {
           width: 100%;
@@ -194,6 +217,43 @@
               height: 24px;
               width: 24px;
             }
+          }
+        }
+
+        .buttons {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+
+          border-top: 1px solid var(--light-gray);
+          margin-top: 15px;
+          padding: 10px 0 0;
+
+          .img {
+            cursor: pointer;
+
+            display: flex;
+
+            .img-holder {
+              padding: 5px;
+              margin-right: 10px;
+
+              img {
+                height: 30px;
+                width: 30px;
+              }
+            }
+          }
+
+          button {
+            height: 40px;
+            width: 100px;
+
+            background-color: var(--primary-blue);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
           }
         }
       }

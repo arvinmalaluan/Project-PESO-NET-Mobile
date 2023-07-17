@@ -18,7 +18,7 @@
       </div>
 
       <div class="chatlists">
-        <div class="person">
+        <div class="person" (click)="openConvo()">
           <span>
             <div class="profile"></div>
           </span>
@@ -27,20 +27,32 @@
             <p class="name">Temporary name</p>
             <p class="message">
               <span>Temporary message</span>
-              <span>Temporary time</span>
+              <span>time</span>
             </p>
           </div>
         </div>
       </div>
     </div>
     <div class="right">
-      <div class="headline">
+      <div class="headline" *ngIf="!isNotOpened">
         <span><div class="profile"></div></span>
         <p>Temporay chatmate's name</p>
       </div>
 
-      <div class="chat-window"></div>
-      <div class="actions">
+      <div class="chat-window">
+        <div class="defaultScreen" *ngIf="isNotOpened">
+          <p>
+            Welcome to the Job Portal Chat Feature! Engage in conversations with
+            employers, recruiters, and fellow job seekers. Collaborate, ask
+            questions, and gain insights about job opportunities and the hiring
+            process. Stay connected and build valuable connections to enhance
+            your job search. Make the most of this chat functionality to
+            network, exchange information, and advance your career goals. Happy
+            chatting and best of luck in your job search!
+          </p>
+        </div>
+      </div>
+      <div class="actions" *ngIf="!isNotOpened">
         <div class="chat">
           <input type="text" placeholder="Write your message here ..." />
           <div class="img-holder">
@@ -50,16 +62,24 @@
         <div class="buttons">
           <div class="img">
             <div class="img-holder">
-              <img src="../../../assets/icons/add-image.svg" alt="" />
+              <span
+                ><img src="../../../assets/icons/add-image.svg" alt=""
+              /></span>
             </div>
             <div class="img-holder">
-              <img src="../../../assets/icons/add-file.svg" alt="" />
+              <span
+                ><img src="../../../assets/icons/add-file.svg" alt=""
+              /></span>
             </div>
             <div class="img-holder">
-              <img src="../../../assets/icons/add-gif.svg" alt="" />
+              <span
+                ><img src="../../../assets/icons/add-gif.svg" alt=""
+              /></span>
             </div>
             <div class="img-holder">
-              <img src="../../../assets/icons/add-emoji.svg" alt="" />
+              <span
+                ><img src="../../../assets/icons/add-emoji.svg" alt=""
+              /></span>
             </div>
           </div>
 
