@@ -1,0 +1,21 @@
+.details-wrapper {
+  width: 100%;
+  padding: 20px 30px;
+  background-color: var(--light-gray);
+  border-radius: 10px;
+
+  p {
+    margin: 20px 0 5px;
+    font-weight: bold;
+  }
+
+  span {
+    font-size: var(--14);
+  }
+
+  ul {
+    padding: 0 0 0 20px;
+    font-size: var(--14);
+    font-family: var(--paragraph-ff);
+  }
+}

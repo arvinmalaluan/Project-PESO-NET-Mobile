@@ -1,0 +1,21 @@
+<div class="details-wrapper">
+  <h4>{{ jobData[index].jobTitle }}</h4>
+  <p>[ Job Description ]</p>
+  <span>{{ jobData[index].jobDescription }}</span>
+
+  <p>[ Required Skills ]</p>
+  <ul>
+    <li *ngFor="let data of jobData[index].requiredSkills">{{ data }}</li>
+  </ul>
+
+  <p>[ Required Education ]</p>
+  <span>{{ jobData[index].jobDescription }}</span>
+  <p>[ Required Experience ]</p>
+  <span>{{ jobData[index].requiredExperience }}</span>
+  <p>[ Location ]</p>
+  <span>{{ jobData[index].location }}</span>
+  <p>[ Salary ]</p>
+  <span>{{ jobData[index].salaryRange }}</span>
+  <p>[ Job Type ]</p>
+  <span>{{ jobData[index].jobType }}</span>
+</div>

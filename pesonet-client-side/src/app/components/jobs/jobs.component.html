@@ -29,37 +29,55 @@
           Filter
           <img src="../../../assets/icons/filter.svg" alt="filter icon" />
         </button>
-        <button class="search">Search</button>
+        <button class="search" (click)="handleSearch()">Search</button>
       </div>
     </div>
   </section>
 
   <section class="results">
-    <div class="left-result">
-      <div class="heading">
-        <h3>210 results found</h3>
-        <p>
-          Relevant
-          <img src="../../../assets/icons/drop.svg" alt="" />
-        </p>
+    <div class="heading">
+      <h3>
+        {{
+          isTriggered
+            ? resLength + "Hello"
+            : "Refine Your Search for a Better Match"
+        }}
+      </h3>
+      <p>
+        Relevant
+        <img src="../../../assets/icons/drop.svg" alt="" />
+      </p>
+    </div>
+    <div class="wrap">
+      <div class="empty-wrapper">
+        <div class="left-result" *ngFor="let newData of jobData">
+          <div
+            class="result-box"
+            (click)="toggleShow(newData.id)"
+            [ngClass]="isActive[newData.id] ? 'active' : ''"
+          >
+            <div class="empty">
+              <span><div class="profile"></div></span>
+              <div class="text">
+                <p class="company">{{ newData.companyName }}</p>
+                <p class="details">
+                  {{ newData.jobTitle }}. {{ newData.jobType }}
+                </p>
+                <p class="location">{{ newData.location }}</p>
+              </div>
+            </div>
+            <div class="time-action">
+              <div class="img-holder">
+                <img src="../../../assets/icons/save-white.svg" alt="" />
+              </div>
+              <p class="time">{{ newData.time }}</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="result-box">
-        <div class="empty">
-          <span><div class="profile"></div></span>
-          <div class="text">
-            <p class="company">Nestlé Philippines</p>
-            <p class="details">Production worker. Full time. P68.07 / hour</p>
-            <p class="location">Lipa City, Batangas</p>
-          </div>
-        </div>
-        <div class="time-action">
-          <div class="img-holder">
-            <img src="../../../assets/icons/save-white.svg" alt="" />
-          </div>
-          <p class="time">10 hours ago</p>
-        </div>
+      <div class="details--" *ngIf="showDetails[id]">
+        <app-results index="{{ id }}" />
       </div>
     </div>
-    <div class="details"></div>
   </section>
 </section>

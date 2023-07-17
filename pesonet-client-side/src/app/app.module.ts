@@ -15,6 +15,7 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { ManagePostComponent } from './components/manage-post/manage-post.component';
 import { ManageInfoComponent } from './components/manage-info/manage-info.component';
 import { ManageResumeComponent } from './components/manage-resume/manage-resume.component';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ManageResumeComponent } from './components/manage-resume/manage-resume.
     ManagePostComponent,
     ManageInfoComponent,
     ManageResumeComponent,
+    ResultsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],

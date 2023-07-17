@@ -38,18 +38,23 @@ body {
     width: 100vw;
   }
 
-  h1 {
-    font-family: var(--heading-ff);
-  }
-
   p,
   span,
-  input,
+  a,
   label,
-  ::placeholder,
   button,
-  a {
+  ::placeholder,
+  li {
     font-family: var(--paragraph-ff);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--heading-ff);
   }
 
   a {
