@@ -17,8 +17,9 @@ nav {
 
     p {
       a {
-        color: #000;
+        color: rgb(var(--secondary-blue));
         font-weight: bold;
+        font-family: var(--heading-ff);
       }
     }
   }
@@ -33,10 +34,20 @@ nav {
 
       box-sizing: border-box;
 
+      li.active:hover {
+        border-bottom: 2px solid rgba(var(--secondary-blue), 0.8);
+      }
+
       li.active {
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid rgb(var(--secondary-blue));
+
         a {
-          color: black;
+          color: rgb(var(--secondary-blue));
+          font-weight: bold;
+        }
+
+        a:hover {
+          color: rgba(var(--secondary-blue), 0.8);
           font-weight: bold;
         }
       }
@@ -44,6 +55,7 @@ nav {
       li {
         list-style: none;
         padding: 18px 10px;
+        transition: border-bottom-width 0.3s ease-in-out;
 
         a {
           cursor: pointer;

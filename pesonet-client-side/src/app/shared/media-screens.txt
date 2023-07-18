@@ -1,0 +1,14 @@
+@media (1025px <= width <= 1366px) {
+}
+
+@media (767px <= width <= 1024px) {
+}
+
+@media (424px <= width <= 768px) {
+}
+
+@media (374px <= width <= 425px) {
+}
+
+@media (width <= 320px) {
+}

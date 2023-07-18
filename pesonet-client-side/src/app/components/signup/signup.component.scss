@@ -162,6 +162,7 @@
                   font-size: var(--16);
 
                   opacity: 0;
+                  transition: 0.5s opacity ease-in;
                 }
 
                 input.active {
@@ -172,6 +173,10 @@
                   color: var(--gray);
                   font-size: var(--12);
                   top: 7px;
+                }
+
+                input.active::placeholder {
+                  opacity: 1;
                 }
 
                 label {
@@ -244,6 +249,10 @@
                 top: 7px;
               }
 
+              input.active::placeholder {
+                opacity: 1;
+              }
+
               label {
                 position: absolute;
                 left: 0;
@@ -261,6 +270,7 @@
                 font-size: var(--16);
 
                 opacity: 0;
+                transition: 0.5s opacity ease-in;
               }
 
               span {
@@ -355,7 +365,7 @@
                 }
 
                 input:checked + label {
-                  background-color: var(--primary-blue);
+                  background-color: rgb(var(--secondary-blue));
                   color: #fff;
                 }
               }
@@ -379,7 +389,7 @@
           }
 
           button:hover {
-            background-color: var(--primary-blue);
+            background-color: rgb(var(--secondary-blue));
           }
 
           p {
@@ -394,7 +404,136 @@
             }
 
             a:hover {
-              color: var(--primary-blue);
+              color: rgb(var(--secondary-blue));
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (1025px <= width <= 1366px) {
+}
+
+@media (893px <= width <= 1024px) {
+  .container {
+    .signup-wrapper {
+      .left {
+        width: 100%;
+      }
+
+      .right {
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media (800px <= width <= 892px) {
+  .container {
+    padding: 0;
+
+    .signup-wrapper {
+      padding: 0;
+
+      .left {
+        width: 100%;
+        border-radius: 0;
+
+        .img-holder {
+        }
+      }
+
+      .right {
+        width: 80%;
+
+        .right-wrapper {
+          padding: 100px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (width <= 799px) {
+  .container {
+    height: 100vh;
+    padding: 0;
+    padding: 0 100px;
+
+    .signup-wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .left {
+        display: none;
+      }
+
+      .right {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (width <= 600px) {
+  .container {
+    height: 100vh;
+    padding: 0;
+    padding: 10px 10px;
+
+    .signup-wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .left {
+        display: none;
+      }
+
+      .right {
+        height: 100%;
+        width: 100%;
+        padding: 20px 20px;
+
+        .right-wrapper {
+          width: 100%;
+
+          form {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .m20 {
+              margin-bottom: 10px;
+            }
+
+            .name {
+              width: 100%;
+              display: grid;
+              grid-template-columns: 100%;
+              grid-auto-flow: row;
+              gap: 10px;
+              height: auto;
+
+              .fname,
+              .lname {
+                width: 100%;
+
+                .name-box {
+                  height: 50px;
+                  width: 100%;
+
+                  input {
+                    height: 100%;
+                    width: 100%;
+                  }
+                }
+              }
             }
           }
         }
