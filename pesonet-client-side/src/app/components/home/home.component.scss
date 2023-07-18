@@ -17,11 +17,6 @@
     border-radius: 10px;
     padding: 20px;
 
-    hr {
-      margin-top: 5px;
-      border-top: 1px solid var(--light-gray);
-    }
-
     .upper-box {
       height: 100%;
 
@@ -143,33 +138,11 @@
       }
     }
 
-    .filter {
-      margin: 15px 0;
-      width: 100%;
-      height: 20px;
-
-      display: flex;
-      justify-content: space-between;
-
-      input {
-        height: 50%;
-        width: 100%;
-
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid var(--gray);
-      }
-
-      p {
-        width: 20%;
-        margin-left: 15px;
-      }
-    }
-
     .job-post {
       padding: 24px;
       background-color: #fff;
       border-radius: 10px;
+      margin-top: 30px;
 
       .header {
         display: flex;
@@ -235,6 +208,209 @@
 
         .action-box:hover {
           background-color: var(--light-gray);
+        }
+      }
+    }
+  }
+}
+
+@media (width <= 1230px) {
+  .container {
+    .left {
+      .upper-box {
+        .follow-box {
+          .profile {
+            display: none;
+          }
+
+          .txt-content {
+            margin: 0;
+          }
+        }
+      }
+
+      .recommendation {
+        p {
+          font-size: 14px;
+        }
+
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (width <= 960px) {
+  .container {
+    .left {
+      display: none;
+    }
+
+    .right {
+      margin: 0;
+    }
+  }
+}
+
+@media (width <= 765px) {
+  .container {
+    padding: 20px 50px 0;
+  }
+}
+
+@media (width <= 700px) {
+  .container {
+    .right {
+      .job-post {
+        padding: 24px;
+        background-color: #fff;
+        border-radius: 10px;
+        margin-top: 30px;
+
+        .header {
+          display: flex;
+          background-color: transparent;
+
+          .profile {
+            height: 50px;
+            width: 50px;
+            background-color: var(--gray);
+            border-radius: 50%;
+          }
+
+          .txt-content {
+            margin-left: 15px;
+
+            .name {
+              font-weight: bold;
+              font-size: var(--14);
+            }
+
+            .company,
+            .time {
+              color: var(--gray);
+              font-size: var(--12);
+            }
+          }
+        }
+
+        .body {
+          margin-top: 16px;
+
+          .img-holder {
+            width: 100%;
+            margin: 15px 0 28px;
+
+            border-radius: 10px;
+            background-color: blue;
+          }
+        }
+
+        .actions {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          margin-top: 15px;
+
+          .action-box {
+            img {
+              margin: 0;
+            }
+
+            p {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width <= 470px) {
+  .container {
+    padding: 0;
+
+    .right {
+      .create-post {
+        display: none;
+      }
+
+      .job-post {
+        margin-top: 15px;
+        padding: 10px 0 5px;
+
+        .header {
+          display: flex;
+          background-color: #fff;
+          padding: 0 20px 0;
+
+          .profile {
+            height: 50px;
+            width: 50px;
+            background-color: var(--gray);
+            border-radius: 50%;
+          }
+
+          .txt-content {
+            margin-left: 15px;
+
+            .name {
+              font-weight: bold;
+              font-size: var(--14);
+            }
+
+            .company,
+            .time {
+              color: var(--gray);
+              font-size: 12px;
+            }
+          }
+        }
+
+        .body {
+          margin-top: 16px;
+
+          p {
+            padding: 0 20px 0;
+          }
+
+          .img-holder {
+            width: 100%;
+            margin: 10px 0 10px;
+
+            border-radius: 0;
+          }
+        }
+
+        .actions {
+          margin: 0 5px;
+
+          .action-box {
+            img {
+              height: 20px;
+              width: 20px;
+            }
+          }
+
+          .action-box:hover {
+            background-color: var(--light-gray);
+          }
+        }
+
+        .right-actions {
+          .right-box {
+            .holder {
+              padding: 0 10px;
+              img {
+                height: 20px;
+                width: 20px;
+              }
+            }
+          }
         }
       }
     }

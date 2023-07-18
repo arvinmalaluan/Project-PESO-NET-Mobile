@@ -9,10 +9,15 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   newNavData = navData;
+  showSideBar = false;
 
   constructor(private router: Router) {}
 
   navigateTo(path: string) {
     this.router.navigate([`${path}`]);
+  }
+
+  changeState() {
+    this.showSideBar = !this.showSideBar;
   }
 }

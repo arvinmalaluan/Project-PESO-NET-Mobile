@@ -4,7 +4,7 @@
   <section class="left">
     <div class="upper-box">
       <p class="title">Add to your feed</p>
-      <hr />
+
       <div class="follow-box">
         <span><div class="profile"></div></span>
         <div class="txt-content">
@@ -18,7 +18,6 @@
       </div>
     </div>
 
-    <hr />
     <div class="recommendation">
       <p class="view-all">View all recommendations</p>
       <img src="../../../assets/icons/arrow-forward.svg" alt="arrow button" />
@@ -35,11 +34,6 @@
         id=""
         placeholder="What is on your mind, Arvin?"
       />
-    </div>
-
-    <div class="filter">
-      <input type="text" />
-      <p>Sort by:</p>
     </div>
 
     <div class="job-post">
@@ -66,7 +60,7 @@
 
         <div *ngIf="tempData.img" class="img-holder"></div>
       </div>
-      <hr />
+
       <div class="actions">
         <div *ngFor="let feedBtns of btnList" class="action-box">
           <img

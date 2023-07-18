@@ -11,6 +11,7 @@ import { ManagePostComponent } from './components/manage-post/manage-post.compon
 import { ManageResumeComponent } from './components/manage-resume/manage-resume.component';
 import { ManageInfoComponent } from './components/manage-info/manage-info.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   {

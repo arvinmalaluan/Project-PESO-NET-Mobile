@@ -24,6 +24,26 @@ nav {
     }
   }
 
+  .burger {
+    font-size: 20px;
+    width: 33px;
+    color: var(--gray);
+    border-radius: 50%;
+    padding: 5px;
+
+    display: none;
+
+    i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .burger:hover {
+    background-color: var(--light-gray);
+  }
+
   .links {
     width: 50%;
 
@@ -69,5 +89,49 @@ nav {
         }
       }
     }
+  }
+}
+
+@media (width <= 990px) {
+  nav {
+    padding: 0 100px;
+    width: 100vw;
+
+    .links {
+      width: 70%;
+    }
+  }
+}
+
+@media (width <= 765px) {
+  nav {
+    padding: 0 50px;
+    width: 100vw;
+
+    .links {
+      width: 70%;
+    }
+  }
+}
+
+@media (width <= 665px) {
+  nav {
+    padding: 0 50px;
+    width: 100vw;
+    height: 57px;
+
+    .links {
+      display: none;
+    }
+
+    .burger {
+      display: unset;
+    }
+  }
+}
+
+@media (width <= 470px) {
+  nav {
+    padding: 0 20px;
   }
 }

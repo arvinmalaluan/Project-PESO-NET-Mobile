@@ -7,7 +7,6 @@
     </h2>
     <p>
       Introducing Our Enhanced Search: Find Your Perfect Career Match Instantly!
-      <br />
       Discover Our New Search Function: Your Dream Career Just a Click Away!
     </p>
   </section>
@@ -21,7 +20,7 @@
         </div>
         <div class="input-box">
           <img src="../../../assets/icons/location.svg" alt="search icon" />
-          <input type="text" placeholder="Search your location here ..." />
+          <input type="text" placeholder="Location" />
         </div>
       </div>
       <div class="search-btns">
@@ -78,6 +77,8 @@
       <div class="details--" *ngIf="showDetails[id]">
         <app-results index="{{ id }}" />
       </div>
+
+      <div class="empty--" (click)="close(id)" *ngIf="showDetails[id]"></div>
     </div>
   </section>
 </section>

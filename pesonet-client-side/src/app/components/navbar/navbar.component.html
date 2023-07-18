@@ -9,4 +9,21 @@
       </li>
     </ul>
   </div>
+  <div class="burger" (click)="changeState()">
+    <i class="fa-sharp fa-solid fa-bars"></i>
+  </div>
 </nav>
+
+<section *ngIf="showSideBar">
+  <ul>
+    <li routerLink="/home" routerLinkActive="">Home</li>
+    <li routerLink="/jobs" routerLinkActive="">Jobs</li>
+    <li routerLink="/messages" routerLinkActive="">Messages</li>
+    <li routerLink="/notifications" routerLinkActive="">Notifications</li>
+    <li routerLink="/profile" routerLinkActive="">Profile</li>
+  </ul>
+
+  <ul>
+    <li>Logout</li>
+  </ul>
+</section>

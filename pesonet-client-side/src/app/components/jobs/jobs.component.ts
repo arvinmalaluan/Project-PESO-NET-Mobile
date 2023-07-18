@@ -41,4 +41,9 @@ export class JobsComponent implements OnInit {
   handleSearch() {
     this.isTriggered = !this.isTriggered;
   }
+
+  close(unique: number) {
+    this.showDetails[unique] = !this.showDetails[unique];
+    this.isActive[unique] = !this.isActive[unique];
+  }
 }

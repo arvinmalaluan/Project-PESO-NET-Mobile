@@ -13,3 +13,38 @@
     margin-top: 20px;
   }
 }
+
+@media (width <= 765px) {
+  .container {
+    padding: 0 50px;
+    width: 100vw;
+
+    .wrapper {
+      width: 100%;
+
+      .profile-header {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (width <= 470px) {
+  .container {
+    padding: 0;
+    width: 100vw;
+
+    .wrapper {
+      width: 100%;
+
+      .profile-header {
+        width: 100%;
+        padding-top: 0;
+      }
+    }
+
+    .content-wrapper {
+      margin-top: 5px;
+    }
+  }
+}

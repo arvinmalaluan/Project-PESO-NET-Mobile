@@ -45,14 +45,16 @@
       </div>
 
       <div class="foot">
-        <div class="left-" *ngFor="let btn of newBtn">
-          <div class="img--">
-            <span
-              ><img
-                src="../../../assets/icons/{{ btn.icon }}"
-                alt="no img found"
-            /></span>
-            <p>{{ btn.label }}</p>
+        <div class="empty--">
+          <div class="left-" *ngFor="let btn of newBtn">
+            <div class="img--">
+              <span
+                ><img
+                  src="../../../assets/icons/{{ btn.icon }}"
+                  alt="no img found"
+              /></span>
+              <p>{{ btn.label }}</p>
+            </div>
           </div>
         </div>
         <div class="right-">
