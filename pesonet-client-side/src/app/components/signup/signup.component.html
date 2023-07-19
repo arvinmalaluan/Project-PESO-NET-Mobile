@@ -131,8 +131,10 @@
           </div>
 
           <div class="role">
-            <span>This field cannot be null *</span>
-            <div class="role-box">
+            <span [ngClass]="isValid[4] ? '' : 'invalid'"
+              >This field cannot be null *</span
+            >
+            <div class="role-box" (click)="onClick(4)">
               <div class="role--content">
                 <input
                   type="radio"
@@ -161,7 +163,7 @@
           <button (click)="handleClick()">Create Account</button>
           <p>
             Already have an account?
-            <a href="">Sign in</a>
+            <a routerLink="/signin">Sign in</a>
           </p>
         </div>
       </div>

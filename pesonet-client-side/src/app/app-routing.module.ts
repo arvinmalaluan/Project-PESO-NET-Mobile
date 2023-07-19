@@ -12,6 +12,7 @@ import { ManageResumeComponent } from './components/manage-resume/manage-resume.
 import { ManageInfoComponent } from './components/manage-info/manage-info.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
 
 const routes: Routes = [
   {
@@ -65,6 +66,10 @@ const routes: Routes = [
         component: ManageResumeComponent,
       },
     ],
+  },
+  {
+    path: 'upload',
+    component: CreatePostComponent,
   },
 ];
 

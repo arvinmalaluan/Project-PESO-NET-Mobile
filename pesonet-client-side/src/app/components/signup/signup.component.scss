@@ -324,6 +324,10 @@
               display: none;
             }
 
+            span.invalid {
+              display: unset;
+            }
+
             .role-box {
               display: flex;
               justify-content: space-evenly;
@@ -479,8 +483,7 @@
 @media (width <= 600px) {
   .container {
     height: 100vh;
-    padding: 0;
-    padding: 15px 40px 10px;
+    padding: 20px 50px;
 
     .signup-wrapper {
       height: 100%;
@@ -494,7 +497,7 @@
       .right {
         height: 100%;
         width: 100%;
-        padding: 20px 20px;
+        padding: 0;
 
         .right-wrapper {
           width: 100%;

@@ -4,6 +4,8 @@ const {
   getUserById,
   update,
   getEmail,
+  getJobPost,
+  upload,
 } = require("./user.service");
 const { genSaltSync, hashSync, compareSync } = require("bcrypt");
 const { sign } = require("jsonwebtoken");
@@ -102,7 +104,7 @@ module.exports = {
   signin: (req, res) => {
     const body = req.body;
 
-    getEmail(body.email, (error, results) => {
+    getEmail(body.identifier, (error, results) => {
       if (error) {
         return res.status(500).json({
           success: 0,
@@ -112,12 +114,14 @@ module.exports = {
       }
 
       if (!results) {
-        return res.status(500).json({
+        return res.status(200).json({
           success: 0,
           message: "Invalid email or password",
+          data: results,
         });
       }
 
+      console.log(results);
       const result = compareSync(body.password, results.password);
 
       if (result) {
@@ -138,5 +142,53 @@ module.exports = {
         message: "Invalid email or password --",
       });
     });
+  },
+
+  fetchJobPost: (req, res) => {
+    getJobPost((error, results) => {
+      if (error) {
+        return res.status(500).json({
+          success: 0,
+          message: "Error occured",
+          data: error,
+        });
+      }
+
+      if (!results) {
+        return res.status(200).json({
+          success: 1,
+          message: "No job post found",
+          data: results,
+        });
+      }
+
+      return res.status(200).json({
+        success: 1,
+        message: "Fetched successfully",
+        data: results,
+      });
+    });
+  },
+
+  createJobPost: (req, res) => {},
+
+  uploadPhoto: (req, res) => {
+    const body = req.body;
+
+    if (!body) {
+      return res.status(200).json({
+        success: 0,
+        message: "unsuccessful",
+      });
+    }
+
+    return res.status(200).json({
+      success: 1,
+      message: "successful",
+    });
+
+    // upload(body, (error, results) => {
+
+    // })
   },
 };

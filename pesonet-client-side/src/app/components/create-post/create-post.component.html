@@ -1,0 +1,11 @@
+<form enctype="multipart/form-data" [formGroup]="createPost">
+  <input
+    type="file"
+    name="image"
+    id="image"
+    formControlName="image"
+    (change)="onFileSelected($event)"
+  />
+</form>
+
+<button (click)="uploadImage()">Submit</button>

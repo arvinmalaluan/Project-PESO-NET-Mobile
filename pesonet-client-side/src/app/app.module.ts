@@ -18,6 +18,8 @@ import { ManageResumeComponent } from './components/manage-resume/manage-resume.
 import { ResultsComponent } from './components/results/results.component';
 import { ProfileHeaderComponent } from './components/profile-header/profile-header.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CreatePostComponent } from './components/create-post/create-post.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +38,14 @@ import { ProfileComponent } from './components/profile/profile.component';
     ResultsComponent,
     ProfileHeaderComponent,
     ProfileComponent,
+    CreatePostComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

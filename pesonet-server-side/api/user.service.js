@@ -22,7 +22,7 @@ module.exports = {
 
             pool.query(
               `INSERT INTO tbl_userinfo(firstname, lastname, fk_userlogin) VALUES (?, ?, ?)`,
-              [data.firstname, data.lastname, results[0].id],
+              [data.fname, data.lname, results[0].id],
               (error, results, fields) => {
                 if (error) {
                   console.log("error 3");
@@ -77,10 +77,10 @@ module.exports = {
     );
   },
 
-  getEmail: (email, callBack) => {
+  getEmail: (identifier, callBack) => {
     pool.query(
-      `SELECT * FROM tbl_userlogin WHERE email = ?`,
-      [email],
+      `SELECT * FROM tbl_userlogin WHERE email = ? or username = ?`,
+      [identifier, identifier],
       (error, results) => {
         if (error) {
           return callBack(error);
@@ -89,5 +89,25 @@ module.exports = {
         return callBack(null, results[0]);
       }
     );
+  },
+
+  getJobPost: (callBack) => {
+    pool.query(`SELECT * FROM tbl_userpost`, [], (error, results) => {
+      if (error) {
+        return callBack(error);
+      }
+
+      return callBack(null, results);
+    });
+  },
+
+  initJobPost: (data, callBack) => {},
+
+  upload: (data, callBack) => {
+    if (!data) {
+      console.log("hello");
+    } else {
+      console.log("hi");
+    }
   },
 };

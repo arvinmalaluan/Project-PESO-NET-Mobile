@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthServicesService } from 'src/app/services/auth.services.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,10 +12,14 @@ export class SignupComponent implements OnInit {
   passState: boolean = false;
   formData: any = FormGroup;
   show: boolean = false;
-  isValid = [true, true, true, true];
+  isValid = [true, true, true, true, true];
+
   label: string = 'Show';
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private _userservice: AuthServicesService
+  ) {}
 
   ngOnInit(): void {
     this.formData = this.formBuilder.group({
@@ -60,12 +65,46 @@ export class SignupComponent implements OnInit {
     this.setState[id] = false;
   }
 
+  onClick(id: number) {
+    this.isValid[id] = true;
+  }
+
   toggleShow() {
     this.show = !this.show;
     this.label = !this.show ? 'Show' : 'Hide';
   }
 
   handleClick() {
-    console.log(this.formData.value);
+    const data = this.formData.value;
+
+    if (data.fname == '') {
+      this.isValid[0] = false;
+      return;
+    }
+    if (data.lname == '') {
+      this.isValid[1] = false;
+      return;
+    }
+    if (data.email == '') {
+      this.isValid[2] = false;
+      return;
+    }
+    if (data.password == '') {
+      this.isValid[3] = false;
+      return;
+    }
+    if (data.role == '') {
+      this.isValid[4] = false;
+      return;
+    }
+
+    this._userservice.signup(data).subscribe((response: any) => {
+      const success = response.success;
+
+      if (success == 1) {
+        // TODO: redirect the user to login
+        // TODO: save the token to local storage
+      }
+    });
   }
 }

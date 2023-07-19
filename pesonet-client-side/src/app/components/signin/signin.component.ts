@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthServicesService } from 'src/app/services/auth.services.service';
 
 @Component({
   selector: 'app-signin',
@@ -13,7 +14,10 @@ export class SigninComponent implements OnInit {
   isValid = [true, true];
   label: string = 'Show';
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private _userservice: AuthServicesService
+  ) {}
 
   ngOnInit(): void {
     this.formData = this.formBuilder.group({
@@ -53,6 +57,13 @@ export class SigninComponent implements OnInit {
   handleSubmit() {
     const data = this.formData.value;
 
-    console.log(data);
+    this._userservice.signin(data).subscribe(
+      (response: any) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

@@ -1,0 +1,26 @@
+CREATE TABLE tbl_userpost (
+	id INT NOT NULL AUTO_INCREMENT,
+    imagename VARCHAR(255) NOT NULL,
+    jobtitle VARCHAR(255) NOT NULL,
+    jobdescription VARCHAR(255) NOT NULL,
+    reqskills VARCHAR(255) NOT NULL,
+    reqeducation VARCHAR(255) NOT NULL,
+    reqexpi VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    salaryrange VARCHAR(255) NOT NULL,
+    jobtype VARCHAR(255) NOT NULL,
+    jobposter INT,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`id`) REFERENCES tbl_userlogin(`id`)
+)
+
+CREATE TABLE tbl_applicationstatus (
+	id INT NOT NULL AUTO_INCREMENT,
+    appstatus VARCHAR(255) NOT NULL,
+    appdate VARCHAR(255) NOT NULL,
+    interviewdate VARCHAR(255) NOT NULL,
+    interviewremarks VARCHAR(255) NOT NULL,
+    fk_userid INT,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`fk_userid`) REFERENCES tbl_userlogin(`id`)
+)
