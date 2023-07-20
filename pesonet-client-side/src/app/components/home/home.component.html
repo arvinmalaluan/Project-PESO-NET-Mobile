@@ -6,7 +6,7 @@
 <app-navbar />
 
 <section class="container">
-  <div class="add">
+  <div class="add" (click)="showModal()">
     <img src="../../../assets/icons/_add.svg" alt="no icon found" />
   </div>
 
@@ -83,12 +83,24 @@
       </div>
 
       <div class="actions">
-        <div *ngFor="let feedBtns of btnList" class="action-box">
-          <img
-            src="../../../assets/icons/{{ feedBtns.icon }}"
-            alt="{{ feedBtns.icon }}"
-          />
-          <p>{{ feedBtns.label }}</p>
+        <div class="action-box" (click)="handleLike(post.id, 1)">
+          <img src="../../../assets/icons/save.svg" alt="save icon" />
+          <p>Save</p>
+        </div>
+
+        <div class="action-box">
+          <img src="../../../assets/icons/like.svg" alt="like icon" />
+          <p>Like</p>
+        </div>
+
+        <div class="action-box">
+          <img src="../../../assets/icons/info.svg" alt="info icon" />
+          <p>Info</p>
+        </div>
+
+        <div class="action-box">
+          <img src="../../../assets/icons/send.svg" alt="apply icon" />
+          <p>Apply</p>
         </div>
       </div>
     </div>

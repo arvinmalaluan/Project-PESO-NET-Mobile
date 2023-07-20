@@ -20,6 +20,9 @@ import { ProfileHeaderComponent } from './components/profile-header/profile-head
 import { ProfileComponent } from './components/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatePostComponent } from './components/create-post/create-post.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({}),
+    NgToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

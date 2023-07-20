@@ -34,4 +34,20 @@ export class AuthServicesService {
   search(data: any) {
     return this.httpClient.post(this.url + '/searchjob', data);
   }
+
+  save(data: any) {
+    return this.httpClient.post(this.url + '/save', data);
+  }
+
+  storeToken(tokenValue: string) {
+    localStorage.setItem('token', tokenValue);
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
 }

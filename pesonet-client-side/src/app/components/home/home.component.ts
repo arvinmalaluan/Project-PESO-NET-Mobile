@@ -44,4 +44,6 @@ export class HomeComponent implements OnInit {
     this.showCreate = !this.showCreate;
     console.log(this.job);
   }
+
+  handleLike(paramOne: number, paramTwo: number) {}
 }

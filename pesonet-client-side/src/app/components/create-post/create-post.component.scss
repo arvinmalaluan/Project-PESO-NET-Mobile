@@ -132,3 +132,19 @@
     color: #fff;
   }
 }
+
+@media (width <= 470px) {
+  .wrapper {
+    border-radius: 10px 10px 0 0;
+    position: fixed;
+
+    transform: unset;
+    left: 0;
+    top: auto;
+    bottom: 0;
+
+    height: 60%;
+    width: 100%;
+    padding: 20px;
+  }
+}

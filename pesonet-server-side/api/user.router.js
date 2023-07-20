@@ -8,6 +8,7 @@ const {
   uploadPhoto,
   createJobPost,
   searchJobPost,
+  savedPost,
 } = require("./user.controller");
 const router = require("express").Router();
 const { checkToken } = require("../auth/token_validation");
@@ -25,5 +26,6 @@ router.post("/create-jobpost", createJobPost);
 
 router.post("/upload", upload.single("image"), uploadPhoto);
 router.post("/searchjob", searchJobPost);
+router.post("/save", savedPost);
 
 module.exports = router;

@@ -39,4 +39,6 @@ export class ForgotPasswordComponent implements OnInit {
     this.isValid = false;
     this.setState = false;
   }
+
+  handleClick() {}
 }
