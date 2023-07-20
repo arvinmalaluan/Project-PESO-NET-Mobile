@@ -11,27 +11,41 @@
     </p>
   </section>
 
-  <section class="search">
-    <div class="search-wrapper">
-      <div class="search-input">
-        <div class="input-box br1px">
-          <img src="../../../assets/icons/search.svg" alt="search icon" />
-          <input type="text" placeholder="Search here ..." />
+  <form [formGroup]="searchval">
+    <section class="search">
+      <div class="search-wrapper">
+        <div class="search-input">
+          <div class="input-box br1px">
+            <img src="../../../assets/icons/search.svg" alt="search icon" />
+            <input
+              type="text"
+              placeholder="Search here ..."
+              (keyup)="handleResult()"
+              formControlName="search"
+              name="search"
+            />
+          </div>
+          <div class="input-box">
+            <img src="../../../assets/icons/location.svg" alt="search icon" />
+            <input
+              type="text"
+              placeholder="Location"
+              (keyup)="handleResult()"
+              name="location"
+              formControlName="location"
+            />
+          </div>
         </div>
-        <div class="input-box">
-          <img src="../../../assets/icons/location.svg" alt="search icon" />
-          <input type="text" placeholder="Location" />
+        <div class="search-btns">
+          <button class="filter">
+            Filter
+            <img src="../../../assets/icons/filter.svg" alt="filter icon" />
+          </button>
+          <button class="search" (click)="handleSearch()">Search</button>
         </div>
       </div>
-      <div class="search-btns">
-        <button class="filter">
-          Filter
-          <img src="../../../assets/icons/filter.svg" alt="filter icon" />
-        </button>
-        <button class="search" (click)="handleSearch()">Search</button>
-      </div>
-    </div>
-  </section>
+    </section>
+  </form>
 
   <section class="results">
     <div class="heading">
@@ -49,29 +63,29 @@
     </div>
     <div class="wrap">
       <div class="empty-wrapper">
-        <div class="left-result" *ngFor="let newData of jobData">
+        <div class="left-result" *ngFor="let job of defaultValue">
+          <!-- Loop starts here -->
           <div
             class="result-box"
-            (click)="toggleShow(newData.id)"
-            [ngClass]="isActive[newData.id] ? 'active' : ''"
+            (click)="toggleShow(job.id)"
+            [ngClass]="isActive[job.id] ? 'active' : ''"
           >
             <div class="empty">
               <span><div class="profile"></div></span>
               <div class="text">
-                <p class="company">{{ newData.companyName }}</p>
-                <p class="details">
-                  {{ newData.jobTitle }}. {{ newData.jobType }}
-                </p>
-                <p class="location">{{ newData.location }}</p>
+                <p class="company">{{ job.companyname }}</p>
+                <p class="details">{{ job.jobtitle }}. {{ job.jobtype }}</p>
+                <p class="location">{{ job.location }}</p>
               </div>
             </div>
             <div class="time-action">
               <div class="img-holder">
                 <img src="../../../assets/icons/save-white.svg" alt="" />
               </div>
-              <p class="time">{{ newData.time }}</p>
+              <p class="time">{{ job.time }}</p>
             </div>
           </div>
+          <!-- Loop ends here -->
         </div>
       </div>
       <div class="details--" *ngIf="showDetails[id]">

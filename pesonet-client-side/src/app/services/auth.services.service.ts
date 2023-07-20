@@ -21,9 +21,17 @@ export class AuthServicesService {
     });
   }
 
-  upload(data: any) {
-    return this.httpClient.post(this.url + '/upload', data, {
-      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+  getAllPosts() {
+    return this.httpClient.post(this.url + '/getpost', {
+      headers: new HttpHeaders(),
     });
+  }
+
+  upload(data: any) {
+    return this.httpClient.post(this.url + '/upload', data);
+  }
+
+  search(data: any) {
+    return this.httpClient.post(this.url + '/searchjob', data);
   }
 }

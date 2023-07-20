@@ -4,8 +4,10 @@ const {
   fetchUsersById,
   updateInfo,
   signin,
-  fetchJobPost,
+  fetchAllJobPost,
   uploadPhoto,
+  createJobPost,
+  searchJobPost,
 } = require("./user.controller");
 const router = require("express").Router();
 const { checkToken } = require("../auth/token_validation");
@@ -17,9 +19,11 @@ router.get("/:id", fetchUsersById);
 router.patch("/", checkToken, updateInfo);
 
 router.post("/signin", signin);
-router.post("/getpost", fetchJobPost);
+router.post("/getpost", fetchAllJobPost);
+router.post("/create-jobpost", createJobPost);
 // router.post("/upload", upload.single('image'), uploadPhoto);
 
-router.post("/upload", uploadPhoto);
+router.post("/upload", upload.single("image"), uploadPhoto);
+router.post("/searchjob", searchJobPost);
 
 module.exports = router;

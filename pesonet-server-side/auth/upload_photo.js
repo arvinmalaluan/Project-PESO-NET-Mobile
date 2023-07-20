@@ -3,7 +3,7 @@ const path = require("path");
 
 const storage = multer.diskStorage({
   destination: (req, file, callBack) => {
-    callBack(null, "../../pesonet-client-side/src/assets/local_uploads");
+    callBack(null, "./../pesonet-client-side/src/assets/local_uploads");
   },
 
   filename: (req, file, callBack) => {

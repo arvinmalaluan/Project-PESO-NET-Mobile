@@ -7,7 +7,6 @@ module.exports = {
       [data.email, data.role, data.password],
       (error, results, fields) => {
         if (error) {
-          console.log("error 1");
           return callBack(error);
         }
 
@@ -16,7 +15,6 @@ module.exports = {
           [data.email],
           (error, results) => {
             if (error) {
-              console.log("error 2");
               return callBack(eror);
             }
 
@@ -25,7 +23,6 @@ module.exports = {
               [data.fname, data.lname, results[0].id],
               (error, results, fields) => {
                 if (error) {
-                  console.log("error 3");
                   return callBack(error);
                 }
               }
@@ -70,9 +67,7 @@ module.exports = {
         if (error) {
           return callBack(error);
         }
-
-        console.log(data);
-        return callBack(null, results);
+        null, results;
       }
     );
   },
@@ -91,23 +86,105 @@ module.exports = {
     );
   },
 
-  getJobPost: (callBack) => {
-    pool.query(`SELECT * FROM tbl_userpost`, [], (error, results) => {
-      if (error) {
-        return callBack(error);
-      }
+  getAllJobPost: (callBack) => {
+    pool.query(
+      `SELECT * FROM tbl_userpost LEFT JOIN tbl_userinfo ON tbl_userpost.jobposter = tbl_userinfo.id`,
+      [],
+      (error, results) => {
+        if (error) {
+          return callBack(error);
+        }
 
-      return callBack(null, results);
-    });
+        return callBack(null, results);
+      }
+    );
   },
 
-  initJobPost: (data, callBack) => {},
+  initJobPost: (data, callBack) => {
+    pool.query(
+      `INSERT INTO tbl_userpost(imagename, jobtitle, jobdescription, reqskills, reqeducation, reqexpi, location, salaryrange, jobtype, jobposter) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        data.img,
+        data.title,
+        data.descrip,
+        data.skills,
+        data.educ,
+        data.expi,
+        data.location,
+        data.salary,
+        data.type,
+        data.poster,
+      ],
+      (error, results) => {
+        if (error) {
+          return callBack(error);
+        }
 
-  upload: (data, callBack) => {
-    if (!data) {
-      console.log("hello");
-    } else {
-      console.log("hi");
+        return callBack(null, results);
+      }
+    );
+  },
+
+  search: (data, callBack) => {
+    if (data.search != "" && data.location != "") {
+      pool.query(
+        `SELECT * FROM tbl_userpost LEFT JOIN tbl_userinfo ON tbl_userpost.jobposter = tbl_userinfo.id WHERE (jobtitle LIKE CONCAT('%', ?, '%') OR jobtype LIKE CONCAT('%', ?, '%') OR companyname LIKE CONCAT('%', ?, '%')) AND location LIKE CONCAT('%', ?, '%')`,
+        [data.search, data.search, data.search, data.location],
+        (error, results) => {
+          if (error) {
+            return callBack(error);
+          }
+
+          return callBack(null, results);
+        }
+      );
+    } else if (data.search == "" || data.location == "") {
+      let query = "";
+      let values = [];
+
+      if (data.search == "") {
+        query = `SELECT * FROM tbl_userpost LEFT JOIN tbl_userinfo ON tbl_userpost.jobposter = tbl_userinfo.id WHERE location LIKE CONCAT('%', ?, '%')`;
+        values = [data.location];
+      } else {
+        query = `SELECT * FROM tbl_userpost LEFT JOIN tbl_userinfo ON tbl_userpost.jobposter = tbl_userinfo.id WHERE jobtitle LIKE CONCAT('%', ?, '%') OR jobtype LIKE CONCAT('%', ?, '%') OR companyname LIKE CONCAT('%', ?, '%')`;
+        values = [data.search, data.search, data.search];
+      }
+
+      pool.query(query, values, (error, results) => {
+        if (error) {
+          return callBack(error);
+        }
+
+        return callBack(null, results);
+      });
     }
+  },
+
+  like: (data, callBack) => {
+    pool.query(
+      `INSERT INTO liked_posts (user_id, post_id) VALUES (?, ?)`,
+      [data.user_id, data.post_id],
+      (error, results) => {
+        if (error) {
+          return callBack(error);
+        }
+
+        return callBack(null, results);
+      }
+    );
+  },
+
+  save: (data, callBack) => {
+    pool.query(
+      `INSERT INTO saved_posts (user_id, post_id) VALUES (?, ?)`,
+      [data.user_id, data.post_id],
+      (error, results) => {
+        if (error) {
+          return callBack(error);
+        }
+
+        return callBack(null, results);
+      }
+    );
   },
 };

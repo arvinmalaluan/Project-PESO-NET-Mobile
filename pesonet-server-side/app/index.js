@@ -6,15 +6,14 @@ const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 const db = require("../config/db.conn");
+const bodyParser = require("body-parser");
 
 // Enable Cross-Origin Resource Sharing (CORS) middleware
 // CORS allows requests from different origins to access the server's resources
 // This line enables CORS for all routes in the application
 app.use(cors());
 
-// Parse URL-encoded bodies (e.g., form data) in the incoming requests
-// This line adds the body-parser middleware to handle URL-encoded data
-app.use(express.urlencoded({ extended: true, limit: 100000, limit: "500mb" }));
+app.use(express.urlencoded({ limit: "100mb", extended: true }));
 
 // Parse JSON bodies in the incoming requests
 // This line adds the body-parser middleware to handle JSON data

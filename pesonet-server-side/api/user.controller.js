@@ -4,8 +4,10 @@ const {
   getUserById,
   update,
   getEmail,
-  getJobPost,
-  upload,
+  search,
+  initJobPost,
+  getAllJobPost,
+  save,
 } = require("./user.service");
 const { genSaltSync, hashSync, compareSync } = require("bcrypt");
 const { sign } = require("jsonwebtoken");
@@ -144,8 +146,8 @@ module.exports = {
     });
   },
 
-  fetchJobPost: (req, res) => {
-    getJobPost((error, results) => {
+  fetchAllJobPost: (req, res) => {
+    getAllJobPost((error, results) => {
       if (error) {
         return res.status(500).json({
           success: 0,
@@ -170,7 +172,21 @@ module.exports = {
     });
   },
 
-  createJobPost: (req, res) => {},
+  createJobPost: (req, res) => {
+    const body = req.body;
+
+    initJobPost(body, (error, results) => {
+      if (error) {
+        return res
+          .status("500")
+          .json({ success: 0, message: "Error encountered", data: error });
+      }
+
+      return res
+        .status(200)
+        .json({ success: 1, message: "Added successfully", data: results });
+    });
+  },
 
   uploadPhoto: (req, res) => {
     const body = req.body;
@@ -186,9 +202,37 @@ module.exports = {
       success: 1,
       message: "successful",
     });
+  },
 
-    // upload(body, (error, results) => {
+  searchJobPost: (req, res) => {
+    const body = req.body;
 
-    // })
+    search(body, (error, results) => {
+      if (error) {
+        return res
+          .status("500")
+          .json({ success: 0, message: "Error encountered", data: error });
+      }
+
+      return res
+        .status(200)
+        .json({ success: 1, message: "Search results", data: results });
+    });
+  },
+
+  savedPost: (req, res) => {
+    const data = req.body;
+
+    save(body, (error, results) => {
+      if (error) {
+        return res
+          .status(500)
+          .json({ success: 0, message: "Error occured", data: error });
+      }
+
+      return res
+        .status(200)
+        .json({ success: 1, message: "Successful", data: results });
+    });
   },
 };

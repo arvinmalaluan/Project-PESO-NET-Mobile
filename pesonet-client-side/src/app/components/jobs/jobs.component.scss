@@ -426,15 +426,37 @@
 
 @media (width <= 500px) {
   .container {
+    background-color: var(--primary-yellow);
+    overflow: hidden;
+    .header,
+    .search {
+      padding: 0 20px;
+    }
+
     .results {
+      padding: 10px 10px;
+      margin-top: 20px;
+      height: 100%;
+
       .heading {
         h3 {
           margin-right: 20px;
+          padding-left: 10px;
         }
       }
       .wrap {
         .empty-wrapper {
           .left-result {
+            .result-box {
+              padding: 10px 10px;
+
+              .time-action {
+                .img-holder {
+                  background-color: var(--primary-yellow);
+                  border-radius: 7px;
+                }
+              }
+            }
             .empty {
               margin-right: 20px;
 

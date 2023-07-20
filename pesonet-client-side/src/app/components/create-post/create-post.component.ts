@@ -11,6 +11,7 @@ import { AuthServicesService } from 'src/app/services/auth.services.service';
 export class CreatePostComponent implements OnInit {
   createPost: any = FormGroup;
   selectedFile: File | undefined;
+  name: string = 'unset';
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
@@ -43,4 +44,6 @@ export class CreatePostComponent implements OnInit {
       });
     }
   }
+
+  close() {}
 }

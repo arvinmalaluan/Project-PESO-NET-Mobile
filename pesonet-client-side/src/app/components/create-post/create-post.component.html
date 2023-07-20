@@ -1,11 +1,47 @@
-<form enctype="multipart/form-data" [formGroup]="createPost">
-  <input
-    type="file"
-    name="image"
-    id="image"
-    formControlName="image"
-    (change)="onFileSelected($event)"
-  />
-</form>
+<div class="wrapper">
+  <div class="heading">
+    <h2>Create Post</h2>
+    <div class="close">
+      <img src="../../../assets/icons/close.svg" alt="" />
+    </div>
+  </div>
 
-<button (click)="uploadImage()">Submit</button>
+  <div class="profile">
+    <div class="profile--"></div>
+
+    <div class="profile--txt">
+      <p class="name">{{ name }}</p>
+      <div class="visibility">
+        <p>public</p>
+      </div>
+    </div>
+  </div>
+
+  <form enctype="multipart/form-data" [formGroup]="createPost">
+    <div class="input-box">
+      <input
+        type="text"
+        name="txt_content"
+        id="txt_content"
+        placeholder="What's on your mind, {{ name }}"
+      />
+    </div>
+
+    <div class="file">
+      <input
+        type="file"
+        name="image"
+        id="image"
+        formControlName="image"
+        (change)="onFileSelected($event)"
+      />
+
+      <div class="txt_content">
+        <img src="../../../assets/icons/add-photo.svg" alt="" />
+        <span>Add photo</span>
+      </div>
+    </div>
+  </form>
+
+  <button (click)="uploadImage()">Submit</button>
+</div>

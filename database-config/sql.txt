@@ -1,17 +1,18 @@
 CREATE TABLE tbl_userpost (
 	id INT NOT NULL AUTO_INCREMENT,
-    imagename VARCHAR(255) NOT NULL,
-    jobtitle VARCHAR(255) NOT NULL,
-    jobdescription VARCHAR(255) NOT NULL,
-    reqskills VARCHAR(255) NOT NULL,
-    reqeducation VARCHAR(255) NOT NULL,
-    reqexpi VARCHAR(255) NOT NULL,
-    location VARCHAR(255) NOT NULL,
-    salaryrange VARCHAR(255) NOT NULL,
-    jobtype VARCHAR(255) NOT NULL,
+    imagename TEXT NOT NULL,
+    jobtitle TEXT NOT NULL,
+    jobdescription TEXT NOT NULL,
+    reqskills TEXT NOT NULL,
+    reqeducation TEXT NOT NULL,
+    reqexpi TEXT NOT NULL,
+    location TEXT NOT NULL,
+    salaryrange TEXT NOT NULL,
+    jobtype TEXT NOT NULL,
+    date_column DATE DEFAULT CURDATE(),
     jobposter INT,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`id`) REFERENCES tbl_userlogin(`id`)
+    FOREIGN KEY (`jobposter`) REFERENCES tbl_userinfo(`id`)
 )
 
 CREATE TABLE tbl_applicationstatus (
@@ -24,3 +25,15 @@ CREATE TABLE tbl_applicationstatus (
     PRIMARY KEY (`id`),
     FOREIGN KEY (`fk_userid`) REFERENCES tbl_userlogin(`id`)
 )
+
+CREATE TABLE tbl_logs (
+	id INT NOT NULL AUTO_INCREMENT,
+    isLiked BOOLEAN,
+    isSaved BOOLEAN,
+    isApplied BOOLEAN,
+    fk_userinfo INT,
+    fk_userpost INT,
+    PRIMARY KEY(`id`),
+    FOREIGN KEY(`fk_userpost`) REFERENCES tbl_userpost(`id`),
+    FOREIGN KEY(`fk_userinfo`) REFERENCES tbl_userinfo(`id`)
+);

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { jobData } from '../../shared/jobData';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthServicesService } from 'src/app/services/auth.services.service';
 
 @Component({
   selector: 'app-results',
@@ -8,42 +9,21 @@ import { jobData } from '../../shared/jobData';
 })
 export class ResultsComponent implements OnInit {
   @Input() index: string;
-  jobData = jobData;
 
-  id: number;
-  jobTitle: string;
-  jobDescription: string;
-  requiredSkills: string[];
-  requiredEducation: string;
-  requiredExperience: string;
-  location: string;
-  salaryRange: string;
-  jobType: string;
+  job: any[] = [];
 
-  constructor() {
-    console.log(this.index);
-  }
+  constructor(private _user: AuthServicesService) {}
 
   ngOnInit(): void {
-    // const {
-    //   id,
-    //   jobTitle,
-    //   jobDescription,
-    //   requiredSkills,
-    //   requiredEducation,
-    //   requiredExperience,
-    //   location,
-    //   salaryRange,
-    //   jobType,
-    // } = this.jobData;
-    // this.id = id;
-    // this.jobTitle = jobTitle;
-    // this.jobDescription = jobDescription;
-    // this.requiredSkills = requiredSkills;
-    // this.requiredEducation = requiredEducation;
-    // this.requiredExperience = requiredExperience;
-    // this.location = location;
-    // this.salaryRange = salaryRange;
-    // this.jobType = jobType;
+    this._user.getAllPosts().subscribe((response: any) => {
+      const datacount = response.data.length;
+      const data = response.data;
+
+      for (let i = 0; i < datacount; i++) {
+        if (data[i].id == this.index) {
+          this.job.push(data[i]);
+        }
+      }
+    });
   }
 }

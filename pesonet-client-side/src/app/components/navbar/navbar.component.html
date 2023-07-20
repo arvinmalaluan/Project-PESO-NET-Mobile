@@ -14,7 +14,8 @@
   </div>
 </nav>
 
-<section *ngIf="showSideBar">
+<section class="sidebar active" *ngIf="showSideBar">
+  <div class="empty-"></div>
   <ul>
     <li routerLink="/home" routerLinkActive="">Home</li>
     <li routerLink="/jobs" routerLinkActive="">Jobs</li>
