@@ -37,3 +37,23 @@ CREATE TABLE tbl_logs (
     FOREIGN KEY(`fk_userpost`) REFERENCES tbl_userpost(`id`),
     FOREIGN KEY(`fk_userinfo`) REFERENCES tbl_userinfo(`id`)
 );
+
+CREATE TABLE liked_posts (
+	id INT NOT NULL AUTO_INCREMENT,
+    post_id INT NOT NULL,
+    liker_id INT NOT NULL,
+    checker INT AS (CONCAT(post_id, liker_id)),
+    PRIMARY KEY (id),
+    FOREIGN KEY (post_id) REFERENCES tbl_userpost(id),
+    FOREIGN KEY (liker_id) REFERENCES tbl_userinfo(id)
+);
+
+CREATE TABLE applied_posts (
+	id INT NOT NULL AUTO_INCREMENT,
+    post_id INT NOT NULL,
+    liker_id INT NOT NULL,
+    checker INT AS (CONCAT(post_id, liker_id)),
+    PRIMARY KEY (id),
+    FOREIGN KEY (post_id) REFERENCES tbl_userpost(id),
+    FOREIGN KEY (liker_id) REFERENCES tbl_userinfo(id)
+);

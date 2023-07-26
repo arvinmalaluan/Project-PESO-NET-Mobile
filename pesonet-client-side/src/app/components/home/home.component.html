@@ -46,7 +46,7 @@
       />
     </div>
 
-    <div class="job-post" *ngFor="let post of posts">
+    <div class="job-post" *ngFor="let post of posts; let i = index">
       <div class="right-actions">
         <div class="right-box">
           <div class="holder" *ngFor="let topBtns of topRight">
@@ -83,13 +83,29 @@
       </div>
 
       <div class="actions">
-        <div class="action-box" (click)="handleLike(post.id, 1)">
-          <img src="../../../assets/icons/save.svg" alt="save icon" />
+        <div
+          class="action-box"
+          (click)="handleSave(post.new_id, i)"
+          [ngClass]="save[i] ? 'isActive' : ''"
+        >
+          <img
+            src="../../../assets/icons/{{
+              save[i] ? 'bookmark-added' : 'save'
+            }}.svg"
+            alt="save icon"
+          />
           <p>Save</p>
         </div>
 
-        <div class="action-box">
-          <img src="../../../assets/icons/like.svg" alt="like icon" />
+        <div
+          class="action-box"
+          (click)="handleLike(post.new_id)"
+          [ngClass]="like[i] ? 'isActive' : ''"
+        >
+          <img
+            src="../../../assets/icons/{{ like[i] ? 'liked' : 'like' }}.svg"
+            alt="like icon"
+          />
           <p>Like</p>
         </div>
 
@@ -98,8 +114,15 @@
           <p>Info</p>
         </div>
 
-        <div class="action-box">
-          <img src="../../../assets/icons/send.svg" alt="apply icon" />
+        <div
+          class="action-box"
+          (click)="handleApply(post.new_id)"
+          [ngClass]="save[i] ? 'isActive' : ''"
+        >
+          <img
+            src="../../../assets/icons/{{ apply[i] ? 'applied' : 'send' }}.svg"
+            alt="apply icon"
+          />
           <p>Apply</p>
         </div>
       </div>

@@ -2,8 +2,10 @@
   width: 100%;
   height: calc(100vh - 69px);
 
-  background-color: #f2f2f2;
+  background-color: var(--primary-yellow);
   padding-bottom: 30px;
+
+  overflow: hidden;
 
   .header {
     padding: 0 100px;
@@ -119,6 +121,7 @@
     background-color: #fff;
     padding: 20px 100px;
     border-radius: 20px 20px 0 0;
+    height: 100%;
 
     .heading {
       display: flex;

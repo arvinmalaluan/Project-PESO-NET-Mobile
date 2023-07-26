@@ -38,7 +38,7 @@
 
   .left {
     width: 35%;
-    height: 90%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -72,6 +72,7 @@
           .name {
             font-weight: bold;
             font-size: var(--14);
+            padding: none;
           }
 
           .company {
@@ -261,6 +262,8 @@
 @media (width <= 1230px) {
   .container {
     .left {
+      height: 100%;
+
       .upper-box {
         .follow-box {
           .profile {
@@ -290,6 +293,7 @@
   .container {
     .left {
       display: none;
+      height: 100%;
     }
 
     .right {
@@ -453,6 +457,10 @@
 
           .action-box:hover {
             background-color: var(--light-gray);
+          }
+
+          .action-box.isActive {
+            // TODO: change icon color
           }
         }
 

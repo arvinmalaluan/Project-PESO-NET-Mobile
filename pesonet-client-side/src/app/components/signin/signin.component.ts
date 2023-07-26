@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServicesService } from 'src/app/services/auth.services.service';
 import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-signin',
@@ -15,12 +17,15 @@ export class SigninComponent implements OnInit {
   show: boolean = false;
   isValid = [true, true];
   label: string = 'Show';
+  id: number;
 
   constructor(
     private formBuilder: FormBuilder,
     private _userservice: AuthServicesService,
     private _toast: ToastrService,
-    private toast: NgToastService
+    private toast: NgToastService,
+    private router: Router,
+    private ngxService: NgxUiLoaderService
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +64,7 @@ export class SigninComponent implements OnInit {
   }
 
   handleSubmit() {
+    this.ngxService.start();
     const data = this.formData.value;
 
     if (data.identifier == '') {
@@ -67,25 +73,23 @@ export class SigninComponent implements OnInit {
 
     if (data.password == '') {
       this.isValid[1] = false;
-      return;
     }
 
     this._userservice.signin(data).subscribe(
       (response: any) => {
-        if (response.success == 1) {
-          this.toast.success({
-            detail: 'Success message',
-            summary: response.message,
-            duration: 5000,
-          });
+        this.ngxService.stop();
 
-          // this._toast.success('Successful, will now be redirected');
-          // this._userservice.storeToken(response.token);
+        if (response.success == 1) {
+          this._toast.success('Successful, will now be redirected');
+          localStorage.setItem('token', response.token);
+
+          this.router.navigate(['home']);
         } else {
           this._toast.error('Invalid username or password');
         }
       },
       (error) => {
+        this.ngxService.stop();
         this._toast.error('Failed to sign in. Try again');
         console.log(error);
       }

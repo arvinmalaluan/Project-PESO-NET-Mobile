@@ -68,6 +68,10 @@
                 border-bottom-color: #000;
               }
 
+              input.active::placeholder {
+                opacity: 1;
+              }
+
               input.active + label {
                 color: var(--gray);
                 font-size: var(--12);

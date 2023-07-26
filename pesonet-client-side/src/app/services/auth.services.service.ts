@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +28,12 @@ export class AuthServicesService {
     });
   }
 
+  getAllInteractions() {
+    return this.httpClient.post(this.url + '/getinteractions', {
+      headers: new HttpHeaders(),
+    });
+  }
+
   upload(data: any) {
     return this.httpClient.post(this.url + '/upload', data);
   }
@@ -39,15 +46,14 @@ export class AuthServicesService {
     return this.httpClient.post(this.url + '/save', data);
   }
 
-  storeToken(tokenValue: string) {
-    localStorage.setItem('token', tokenValue);
+  cancelIneraction(data: any) {
+    return this.httpClient.patch(this.url + '/cancelInteraction', data);
   }
 
-  getToken() {
-    return localStorage.getItem('token');
-  }
+  getMyId() {
+    const token = localStorage.getItem('token');
+    const decoded = JSON.parse(atob(token.split('.')[1]));
 
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
+    return decoded.result.id;
   }
 }

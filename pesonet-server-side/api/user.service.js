@@ -88,7 +88,21 @@ module.exports = {
 
   getAllJobPost: (callBack) => {
     pool.query(
-      `SELECT * FROM tbl_userpost LEFT JOIN tbl_userinfo ON tbl_userpost.jobposter = tbl_userinfo.id`,
+      `SELECT *, tbl_userpost.id AS new_id FROM tbl_userpost LEFT JOIN tbl_userinfo ON tbl_userpost.jobposter = tbl_userinfo.id`,
+      [],
+      (error, results) => {
+        if (error) {
+          return callBack(error);
+        }
+
+        return callBack(null, results);
+      }
+    );
+  },
+
+  getAllInteractions: (callBack) => {
+    pool.query(
+      `SELECT tbl_userinfo.id, applied_posts.checker AS applied_id, applied_posts.booleanValue AS applied_isClicked, saved_posts.checker AS saved_id, saved_posts.booleanValue AS saved_isClicked, liked_posts.checker AS liked_id, liked_posts.booleanValue AS liked_isClicked FROM tbl_userinfo LEFT JOIN applied_posts ON tbl_userinfo.id = applied_posts.liker_id LEFT JOIN saved_posts ON tbl_userinfo.id = saved_posts.liker_id LEFT JOIN liked_posts ON tbl_userinfo.id = liked_posts.liker_id;`,
       [],
       (error, results) => {
         if (error) {
@@ -176,8 +190,32 @@ module.exports = {
 
   save: (data, callBack) => {
     pool.query(
-      `INSERT INTO saved_posts (user_id, post_id) VALUES (?, ?)`,
-      [data.user_id, data.post_id],
+      "SELECT id FROM tbl_userinfo WHERE fk_userlogin = ?",
+      [data.myId],
+      (error, results) => {
+        if (error) {
+          return callBack(error);
+        }
+
+        pool.query(
+          `INSERT INTO ${data.desired_table} (liker_id, post_id) VALUES (?, ?)`,
+          [results[0].id, data.post_id],
+          (error, results) => {
+            if (error) {
+              return callBack(error);
+            }
+
+            return callBack(null, results);
+          }
+        );
+      }
+    );
+  },
+
+  cancel: (data, callBack) => {
+    pool.query(
+      `UPDATE ${data.desired_table} SET booleanValue = ? WHERE checker = ?`,
+      [data.boolean, data.checker],
       (error, results) => {
         if (error) {
           return callBack(error);

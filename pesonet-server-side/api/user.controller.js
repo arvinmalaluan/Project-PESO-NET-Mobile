@@ -8,6 +8,8 @@ const {
   initJobPost,
   getAllJobPost,
   save,
+  cancel,
+  getAllInteractions,
 } = require("./user.service");
 const { genSaltSync, hashSync, compareSync } = require("bcrypt");
 const { sign } = require("jsonwebtoken");
@@ -172,6 +174,31 @@ module.exports = {
     });
   },
 
+  fetchAllInteractions: (req, res) => {
+    getAllInteractions((error, results) => {
+      if (error) {
+        return res.status(500).json({
+          success: 0,
+          message: "Error occured",
+          data: error,
+        });
+      }
+
+      if (!results) {
+        return res.status(200).json({
+          success: 1,
+          message: "No result found",
+        });
+      }
+
+      return res.status(200).json({
+        success: 1,
+        message: "Fetched successfully",
+        data: results,
+      });
+    });
+  },
+
   createJobPost: (req, res) => {
     const body = req.body;
 
@@ -221,9 +248,25 @@ module.exports = {
   },
 
   savedPost: (req, res) => {
-    const data = req.body;
+    const body = req.body;
 
     save(body, (error, results) => {
+      if (error) {
+        return res
+          .status(500)
+          .json({ success: 0, message: "Error occured", data: error });
+      }
+
+      return res
+        .status(200)
+        .json({ success: 1, message: "Successful", data: results });
+    });
+  },
+
+  cancelInteraction: (req, res) => {
+    const body = req.body;
+
+    cancel(body, (error, results) => {
       if (error) {
         return res
           .status(500)

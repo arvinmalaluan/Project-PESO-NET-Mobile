@@ -24,6 +24,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgToastModule } from 'ng-angular-popup';
 
+import {
+  NgxUiLoaderConfig,
+  NgxUiLoaderModule,
+  SPINNER,
+  PB_DIRECTION,
+} from 'ngx-ui-loader';
+
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  text: 'Please wait ...',
+  textColor: '#1D5D9B',
+  textPosition: 'center-center',
+  pbColor: '#1D5D9B',
+  bgsColor: '#1D5D9B',
+  fgsColor: '#1D5D9B',
+  fgsType: 'ball-spin-clockwise-fade-rotating',
+  fgsSize: 100,
+  pbDirection: PB_DIRECTION.leftToRight,
+  pbThickness: 5,
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +70,7 @@ import { NgToastModule } from 'ng-angular-popup';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({}),
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
     NgToastModule,
   ],
   providers: [],
